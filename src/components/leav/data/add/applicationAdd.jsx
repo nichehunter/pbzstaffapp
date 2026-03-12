@@ -84,7 +84,7 @@ export const LeaveApplicationAdd = (props) => {
               <Message showIcon type={"error"} closable>
                 {error.message}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           })
           .finally(() => {
@@ -121,7 +121,7 @@ export const LeaveApplicationAdd = (props) => {
           <p>Dear HR Team,</p>
           <p>
             A new leave request has been initiated by <strong>${char?.toUpperCase(
-              user?.first_name + " " + user?.last_name
+              user?.first_name + " " + user?.last_name,
             )}</strong> 
             and is pending review by staff's supervisor, 
             <strong>${char.toUpperCase(supervisor?.full_name)}</strong>.
@@ -145,7 +145,7 @@ export const LeaveApplicationAdd = (props) => {
           <p>Dear ${char.toUpperCase(supervisor?.full_name)},</p>
           <p>
             <strong>${char?.toUpperCase(
-              user?.first_name + " " + user?.last_name
+              user?.first_name + " " + user?.last_name,
             )}</strong> has submitted a leave request for your review. 
             Please log in to the system to approve, reject, or assign the request to another supervisor.
           </p>
@@ -163,7 +163,7 @@ export const LeaveApplicationAdd = (props) => {
         subject: "Leave Request",
         message: `<div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
         <p>Dear ${char?.toUpperCase(
-          user?.first_name + " " + user?.last_name
+          user?.first_name + " " + user?.last_name,
         )},</p>
         <p>
           Your leave request has been successfully submitted and is now pending review by your supervisor, 
@@ -177,9 +177,6 @@ export const LeaveApplicationAdd = (props) => {
       </div>`,
       };
 
-
-      
-
       setLoading(true);
       setTimeout(() => {
         if (leave.length >= 1) {
@@ -187,7 +184,7 @@ export const LeaveApplicationAdd = (props) => {
             <Message showIcon type={"error"} closable>
               {"Sorry...! Only one leave is allowed to be in process"}
             </Message>,
-            { placement: "topCenter", duration: 7000 }
+            { placement: "topCenter", duration: 7000 },
           );
           setLoading(false);
           setOpen(false);
@@ -226,8 +223,8 @@ export const LeaveApplicationAdd = (props) => {
                 .sendEmail(dataHREmail)
                 .then(() => {})
                 .catch(() => {});
-              
-                authCRUD
+
+              authCRUD
                 .sendEmail(dataStaffEmail)
                 .then(() => {})
                 .catch(() => {});
@@ -236,7 +233,7 @@ export const LeaveApplicationAdd = (props) => {
                 <Message showIcon type={"success"} closable>
                   Thank you....! another application has been added.
                 </Message>,
-                { placement: "topCenter", duration: 7000 }
+                { placement: "topCenter", duration: 7000 },
               );
               setIndex(index + 1);
               resetForm();
@@ -251,7 +248,7 @@ export const LeaveApplicationAdd = (props) => {
                 <Message showIcon type={"error"} closable>
                   {error.message}
                 </Message>,
-                { placement: "topCenter", duration: 7000 }
+                { placement: "topCenter", duration: 7000 },
               );
             });
         }
@@ -261,10 +258,9 @@ export const LeaveApplicationAdd = (props) => {
 
   useEffect(() => {
     if (formik.values.start_date && formik.values.end_date) {
-      setReturnDate(calculateReturnDate(
-        formik.values.start_date,
-        formik.values.end_date
-      ))
+      setReturnDate(
+        calculateReturnDate(formik.values.start_date, formik.values.end_date),
+      );
     }
   }, [formik.values.start_date, formik.values.end_date]);
 
@@ -272,7 +268,7 @@ export const LeaveApplicationAdd = (props) => {
     if (formik.values.start_date && formik.values.end_date) {
       const dayList = matters.countBusinessDays(
         formik.values.start_date,
-        formik.values.end_date
+        formik.values.end_date,
       );
 
       let day = 0;
@@ -326,41 +322,28 @@ export const LeaveApplicationAdd = (props) => {
               false,
               false,
               "",
-              "-id"
+              "-id",
             )
             .then((resp) => {
               setBalance(
                 resp.data.results
                   ?.map((dt) => dt.balance)
-                  .reduce((a, b) => a + b)
+                  .reduce((a, b) => a + b),
               );
             })
             .catch(() => ({}));
         }
-        if(user.branch_code === "999") {
+        if (user.branch_code === "201") {
           hrmsCRUD
-            .loadDepartmentHead(
-              2,
-              0,
-              user.department_id,
-              true,
-              "",
-              "-id"
-            )
+            .loadDepartmentHead(2, 0, user.department_id, true, "", "-id")
             .then((resp) => {
+              console.log(resp.data);
+
               setSupervisor(resp.data.results[0].supervisor.staff);
-              
             });
         } else {
           hrmsCRUD
-            .loadBranchManager(
-              2,
-              0,
-              user.branch_id,
-              true,
-              "",
-              "-id"
-            )
+            .loadBranchManager(2, 0, user.branch_id, true, "", "-id")
             .then((resp) => {
               setSupervisor(resp.data.results[0].supervisor.staff);
             });
@@ -371,13 +354,23 @@ export const LeaveApplicationAdd = (props) => {
             setHoliday(
               resp.data.results.map((dt) => {
                 return dt.date;
-              })
+              }),
             );
           })
           .catch(() => ({}));
       }, 500);
     }
   }, [dataId, open, formik.values.leave_type]);
+
+  useEffect(() => {
+    if (supervisor) {
+      if (supervisor.staff_opf === parseInt(user.username)) {
+        hrmsCRUD.loadBranchManager(1, 0, 1, true, "", "-id").then((resp) => {
+          setSupervisor(resp.data.results[0].supervisor.staff);
+        });
+      }
+    }
+  }, [supervisor]);
 
   const handleClose = () => {
     setOpen(false);
@@ -442,11 +435,11 @@ export const LeaveApplicationAdd = (props) => {
                         setDate(e);
                         formik.setFieldValue(
                           "start_date",
-                          moment(e[0]).format("yyyy-MM-DD")
+                          moment(e[0]).format("yyyy-MM-DD"),
                         );
                         formik.setFieldValue(
                           "end_date",
-                          moment(e[1]).format("yyyy-MM-DD")
+                          moment(e[1]).format("yyyy-MM-DD"),
                         );
                       }}
                       shouldDisableDate={beforeToday()}
@@ -698,7 +691,12 @@ export const LeaveApplicationAdd = (props) => {
                   <button
                     type="submit"
                     className="btn btn-success"
-                    disabled={formik.isSubmitting || loading || startError || returnDate?.error}
+                    disabled={
+                      formik.isSubmitting ||
+                      loading ||
+                      startError ||
+                      returnDate?.error
+                    }
                   >
                     {!loading && (
                       <span className="indicator-label">
