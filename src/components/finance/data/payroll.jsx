@@ -9,19 +9,6 @@ import { MoreOutlined } from "@ant-design/icons";
 import { SalarySlip } from "./print";
 import { selector } from "../../../api";
 
-const items = [
-  {
-    label: "Print",
-    key: "print",
-    icon: <i className="ri-printer-line"></i>,
-  },
-  {
-    label: "View",
-    key: "view",
-    icon: <i className="ri-eye-line"></i>,
-  },
-];
-
 const { afterToday } = DateRangePicker;
 
 export const StaffPayroll = (props) => {
@@ -37,7 +24,7 @@ export const StaffPayroll = (props) => {
   const [postsPerPage, setePostPerPage] = useState(10);
   const [nextPage, setNextPage] = useState(0);
   const [value, setValue] = useState("");
-  const roles = selector.Roles()
+  const roles = selector.Roles();
 
   useEffect(() => {
     if (dataId) {
@@ -54,7 +41,7 @@ export const StaffPayroll = (props) => {
               <Message showIcon type={"error"} closable>
                 {error.message}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           })
           .finally(() => {
@@ -63,6 +50,7 @@ export const StaffPayroll = (props) => {
       }, 500);
     }
   }, [postsPerPage, nextPage, dataId, value, date]);
+  
 
   const defaultColumns = [
     {
@@ -84,7 +72,7 @@ export const StaffPayroll = (props) => {
       title: "Date",
       dataIndex: "date",
       fullText: true,
-      width: 100,
+      width: 120,
     },
     {
       key: "bsalary",
@@ -104,6 +92,13 @@ export const StaffPayroll = (props) => {
       key: "gsalary",
       title: "G Salary",
       dataIndex: "gsalary",
+      fullText: true,
+      width: 100,
+    },
+    {
+      key: "health",
+      title: "Health",
+      dataIndex: "health",
       fullText: true,
       width: 100,
     },
@@ -146,11 +141,17 @@ export const StaffPayroll = (props) => {
       title: "Action",
       key: "operation",
       fixed: "right",
-      width: 50,
+      width: 70,
       render: (record) => (
         <Dropdown
           menu={{
-            items,
+            items: [
+              {
+                label: "Print",
+                key: "print",
+                icon: <i className="ri-printer-line"></i>,
+              },
+            ],
             onClick: (event) => {
               switch (event.key) {
                 case "print":
@@ -197,8 +198,15 @@ export const StaffPayroll = (props) => {
     gsalary: dt.basic_salary ? (
       <span className="text-end">
         {number.fNumberDoublePoint(
-          parseFloat(dt.basic_salary) + parseFloat(dt.total_allowance)
+          parseFloat(dt.basic_salary) + parseFloat(dt.total_allowance),
         )}
+      </span>
+    ) : (
+      "0.00"
+    ),
+    health: dt.helth_fund ? (
+      <span className="text-end">
+        {number.fNumberDoublePoint(dt.helth_fund)}
       </span>
     ) : (
       "0.00"
@@ -227,7 +235,7 @@ export const StaffPayroll = (props) => {
         {number.fNumberDoublePoint(
           parseFloat(dt.security_fund) +
             parseFloat(dt.payee) +
-            parseFloat(dt.total_deduction)
+            parseFloat(dt.total_deduction),
         )}
       </span>
     ) : (

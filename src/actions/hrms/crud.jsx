@@ -21,10 +21,10 @@ export function loadSupervisor(
   staff_id,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/supervisor/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/supervisor/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -35,16 +35,16 @@ export function loadSupervisorStaff(
   branch,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/supervisor/staff/list?limit=${pageLimit}&offset=${page}&department__id__in=${department}&branch__id__in=${branch}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/supervisor/staff/list?limit=${pageLimit}&offset=${page}&department__id__in=${department}&branch__id__in=${branch}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadStaffCount(type, branch, department) {
   return axios.get(
-    `${apiUrl}/supervisor/staff/count/${type}/${branch}/${department}`
+    `${apiUrl}/supervisor/staff/count/${type}/${branch}/${department}`,
   );
 }
 
@@ -54,16 +54,16 @@ export function loadStaffBranch(
   staff_id,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/staff/branch/details?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/staff/branch/details?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadStaffDocument(pageLimit, page, staff_id, search, order) {
   return axios.get(
-    `${apiUrl}/document/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&search=${search}&ordering=${order}`
+    `${apiUrl}/document/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -76,10 +76,10 @@ export function loadStaffQualification(
   page,
   staff_id,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/staff-qualification/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&search=${search}&ordering=${order}`
+    `${apiUrl}/staff-qualification/list?limit=${pageLimit}&offset=${page}&staff__id=${staff_id}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -90,14 +90,14 @@ export function addStaffQualification(data) {
 //===================================================================== dictionary =================================================================
 export function loadDictionaryData(pageLimit, page, search, id) {
   return axios.get(
-    `${apiUrl}/dictionary/item/parent?limit=${pageLimit}&offset=${page}&dictionary__id=${id}&search=${search}`
+    `${apiUrl}/dictionary/item/parent?limit=${pageLimit}&offset=${page}&dictionary__id=${id}&search=${search}`,
   );
 }
 
 //===================================================================== department head =================================================================
 export function loadDepartmentAll(department) {
   return axios.get(
-    `${apiUrl}/department/all/list?parent_department__id__in=${department}`
+    `${apiUrl}/department/all/list?parent_department__id__in=${department}`,
   );
 }
 
@@ -116,10 +116,10 @@ export function loadDepartmentHead(
   department,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/department-head/list?limit=${pageLimit}&offset=${page}&department__id=${department}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/department-head/list?limit=${pageLimit}&offset=${page}&department__id=${department}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -129,17 +129,17 @@ export function loadBranchManager(
   branch,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/branch-manager/list?limit=${pageLimit}&offset=${page}&branch__id=${branch}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/branch-manager/list?limit=${pageLimit}&offset=${page}&branch__id=${branch}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 //===================================================================== leave roster =================================================================
 export function loadRoster(pageLimit, page, search, order) {
   return axios.get(
-    `${apiUrl}/roster/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`
+    `${apiUrl}/roster/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -149,7 +149,7 @@ export function addLeaveRoster(data) {
 
 export function loadLeaveRoster(pageLimit, page, staff, search, order) {
   return axios.get(
-    `${apiUrl}/leave-roster/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-roster/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -164,10 +164,10 @@ export function loadLeaveApplication(
   staff,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/leave-application/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-application/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -198,7 +198,7 @@ export function loadLeaveAssignmentCount(staff) {
 
 export function loadLeaveAssignment(pageLimit, page, staff, search, order) {
   return axios.get(
-    `${apiUrl}/leave-assignment/list?limit=${pageLimit}&offset=${page}&assigned_to__id=${staff}&is_active=true&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-assignment/list?limit=${pageLimit}&offset=${page}&assigned_to__id=${staff}&is_active=true&search=${search}&ordering=${order}`,
   );
 }
 
@@ -220,7 +220,7 @@ export function addLeaveReject(data) {
 //===================================================================== leave type =================================================================
 export function loadLeaveType(pageLimit, page, search, order) {
   return axios.get(
-    `${apiUrl}/leave-type/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-type/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -231,7 +231,7 @@ export function addLeaveDuration(data) {
 
 export function loadLeaveDuration(pageLimit, page, search, order) {
   return axios.get(
-    `${apiUrl}/leave-duration/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-duration/list?limit=${pageLimit}&offset=${page}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -244,30 +244,30 @@ export function loadLeaveBalance(
   used,
   expire,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/leave-balance/list?limit=${pageLimit}&offset=${page}&staff__id=${staff}&leave_type__id=${leave}&is_used=${used}&is_expired=${expire}&search=${search}&ordering=${order}`
+    `${apiUrl}/leave-balance/list?limit=${pageLimit}&offset=${page}&staff__id=${staff}&leave_type__id=${leave}&is_used=${used}&is_expired=${expire}&search=${search}&ordering=${order}`,
   );
 }
 
 //===================================================================== public holiday =================================================================
 export function loadHoliday(pageLimit, page, active, search, order) {
   return axios.get(
-    `${apiUrl}/holiday/list?limit=${pageLimit}&offset=${page}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/holiday/list?limit=${pageLimit}&offset=${page}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 //===================================================================== finance =================================================================
 export function loadSalary(pageLimit, page, staff, search, order) {
   return axios.get(
-    `${apiUrl}/salary/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`
+    `${apiUrl}/salary/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadAllowance(pageLimit, page, staff, active, search, order) {
   return axios.get(
-    `${apiUrl}/allowance/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/allowance/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -278,22 +278,22 @@ export function loadMonthlyAllowance(
   date,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/monthly-allowance/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&date__range=${date}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/monthly-allowance/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&date__range=${date}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadStaffMonthlyAllowance(staff, month, year, order) {
   return axios.get(
-    `${apiUrl}/monthly-allowance/list?staff__id__in=${staff}&month_consumed__in=${month}&year__in=${year}&ordering=${order}`
+    `${apiUrl}/monthly-allowance/list?staff__id__in=${staff}&month_consumed__in=${month}&year__in=${year}&ordering=${order}`,
   );
 }
 
 export function loadDeduction(pageLimit, page, staff, active, search, order) {
   return axios.get(
-    `${apiUrl}/deduction/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/deduction/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
@@ -304,16 +304,16 @@ export function loadMonthlyDeduction(
   date,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/monthly-deduction/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&date__range=${date}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/monthly-deduction/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&date__range=${date}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadStaffMonthlyDeduction(staff, month, year, order) {
   return axios.get(
-    `${apiUrl}/monthly-deduction/list?staff__id__in=${staff}&month_consumed__in=${month}&year__in=${year}&ordering=${order}`
+    `${apiUrl}/monthly-deduction/list?staff__id__in=${staff}&month_consumed__in=${month}&year__in=${year}&ordering=${order}`,
   );
 }
 
@@ -323,27 +323,44 @@ export function loadOrganization(
   staff,
   active,
   search,
-  order
+  order,
 ) {
   return axios.get(
-    `${apiUrl}/organization/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`
+    `${apiUrl}/organization/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&is_active=${active}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadPayroll(pageLimit, page, staff, search, order) {
   return axios.get(
-    `${apiUrl}/payroll/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`
+    `${apiUrl}/payroll/list?limit=${pageLimit}&offset=${page}&staff__id__in=${staff}&search=${search}&ordering=${order}`,
   );
 }
 
 export function loadStaffPayroll(payroll, staff) {
   return axios.get(
-    `${apiUrl}/staff-payroll/list?payroll__id__in=${payroll}&staff__id__in=${staff}`
+    `${apiUrl}/staff-payroll/list?payroll__id__in=${payroll}&staff__id__in=${staff}`,
   );
 }
 
+export function loadStaffPayrollData({ payrollId, staffId }) {
+  const params = new URLSearchParams();
+
+  if (payrollId) params.append("payroll_id", payrollId);
+  if (staffId) params.append("staff_id", staffId);
+
+  return axios.get(`${apiUrl}/staff-payroll/data?${params.toString()}`);
+}
+
 //==================================================================== staff ===============================================================
-export function loadStaffKPI(pageLimit, page, department, branch, level, search, order) {
+export function loadStaffKPI(
+  pageLimit,
+  page,
+  department,
+  branch,
+  level,
+  search,
+  order,
+) {
   const params = new URLSearchParams({
     limit: pageLimit,
     offset: page,

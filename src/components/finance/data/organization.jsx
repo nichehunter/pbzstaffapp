@@ -35,7 +35,7 @@ const defaultColumns = [
   },
   {
     key: "balance",
-    title: "Balance",
+    title: "Contribution",
     dataIndex: "balance",
     fullText: true,
     width: 100,
