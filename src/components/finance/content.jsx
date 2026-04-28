@@ -40,7 +40,7 @@ export const FinanceContent = () => {
                 <Nav.Item eventKey="salary" style={{ height: 50 }}>
                   <span className="h6 fs-14">Salary</span>
                 </Nav.Item>
-                <Nav.Item eventKey="allowance" style={{ height: 50 }}>
+                {/* <Nav.Item eventKey="allowance" style={{ height: 50 }}>
                   <span className="h6 fs-14">Allowance</span>
                 </Nav.Item>
                 <Nav.Item eventKey="deduction" style={{ height: 50 }}>
@@ -48,7 +48,7 @@ export const FinanceContent = () => {
                 </Nav.Item>
                 <Nav.Item eventKey="organization" style={{ height: 50 }}>
                   <span className="h6 fs-14">Organization</span>
-                </Nav.Item>
+                </Nav.Item> */}
                 <Nav.Item eventKey="montallowance" style={{ height: 50 }}>
                   <span className="h6 fs-14">Monthly Allowance</span>
                 </Nav.Item>
@@ -56,14 +56,12 @@ export const FinanceContent = () => {
                   <span className="h6 fs-14">Monthly Deduction</span>
                 </Nav.Item>
                 <Nav.Item eventKey="payroll" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Payroll</span>
+                  <span className="h6 fs-14">Slip</span>
                 </Nav.Item>
               </Nav>
             </div>
           </div>
-          <div className="col-md-10 col-sm-12">
-            <div className="card shadow p-3">
-              {active === "salary" ? (
+          {/* {active === "salary" ? (
                 <StaffSalary dataId={staff.id} />
               ) : active === "allowance" ? (
                 <StaffAllowance dataId={staff.id} />
@@ -71,6 +69,17 @@ export const FinanceContent = () => {
                 <StaffDeduction dataId={staff.id} />
               ) : active === "organization" ? (
                 <StaffOrganization dataId={staff.id} />
+              ) : active === "montallowance" ? (
+                <StaffMonthlyAllowance dataId={staff.id} />
+              ) : active === "montdeduction" ? (
+                <StaffMonthlyDeduction dataId={staff.id} />
+              ) : active === "payroll" ? (
+                <StaffPayroll dataId={staff.id} />
+              ) : null} */}
+          <div className="col-md-10 col-sm-12">
+            <div className="card shadow p-3">
+              {active === "salary" ? (
+                <StaffSalary dataId={staff.id} />
               ) : active === "montallowance" ? (
                 <StaffMonthlyAllowance dataId={staff.id} />
               ) : active === "montdeduction" ? (

@@ -351,6 +351,24 @@ export function loadStaffPayrollData({ payrollId, staffId }) {
   return axios.get(`${apiUrl}/staff-payroll/data?${params.toString()}`);
 }
 
+export function loadStaffPayrollAllowance({ payrollId, staffId }) {
+  const params = new URLSearchParams();
+
+  if (payrollId) params.append("payroll_id", payrollId);
+  if (staffId) params.append("staff_id", staffId);
+
+  return axios.get(`${apiUrl}/payroll-staff-allowance?${params.toString()}`);
+}
+
+export function loadStaffPayrollDeduction({ payrollId, staffId }) {
+  const params = new URLSearchParams();
+
+  if (payrollId) params.append("payroll_id", payrollId);
+  if (staffId) params.append("staff_id", staffId);
+
+  return axios.get(`${apiUrl}/payroll-staff-deduction?${params.toString()}`);
+}
+
 //==================================================================== staff ===============================================================
 export function loadStaffKPI(
   pageLimit,

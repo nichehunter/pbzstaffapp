@@ -31,6 +31,7 @@ export const SalarySlip = (props) => {
   const handleGeneratePdf = useReactToPrint({
     content: () => dataRef.current,
   });
+  
 
   return (
     <>

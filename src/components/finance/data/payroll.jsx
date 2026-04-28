@@ -6,7 +6,7 @@ import { hrmsCRUD } from "../../../actions/hrms";
 import moment from "moment";
 import { Button, Dropdown, Space } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
-import { SalarySlip } from "./print";
+import { PayrollAllowance, PayrollDeduction, SalarySlip } from "./print";
 import { selector } from "../../../api";
 
 const { afterToday } = DateRangePicker;
@@ -16,6 +16,8 @@ export const StaffPayroll = (props) => {
   const toaster = useToaster();
   const [loading, setLoading] = useState(false);
   const [slipOpen, setSlipOpen] = useState(false);
+  const [openAllowance, setOpenAllowance] = useState(false);
+  const [openDeduction, setOpenDeduction] = useState(false);
   const [data, setData] = useState([]);
   const [payrollID, setPayrollID] = useState(null);
   const [date, setDate] = useState(null);
@@ -50,7 +52,6 @@ export const StaffPayroll = (props) => {
       }, 500);
     }
   }, [postsPerPage, nextPage, dataId, value, date]);
-  
 
   const defaultColumns = [
     {
@@ -65,6 +66,7 @@ export const StaffPayroll = (props) => {
       title: "OPF",
       dataIndex: "opf",
       fullText: true,
+      fixed: true,
       width: 40,
     },
     {
@@ -72,6 +74,7 @@ export const StaffPayroll = (props) => {
       title: "Date",
       dataIndex: "date",
       fullText: true,
+      fixed: true,
       width: 120,
     },
     {
@@ -151,12 +154,30 @@ export const StaffPayroll = (props) => {
                 key: "print",
                 icon: <i className="ri-printer-line"></i>,
               },
+              {
+                label: "Allowance",
+                key: "allowance",
+                icon: <i className="ri-money-dollar-box-line"></i>,
+              },
+              {
+                label: "Deduction",
+                key: "deduction",
+                icon: <i className="ri-subtract-line"></i>,
+              },
             ],
             onClick: (event) => {
               switch (event.key) {
                 case "print":
                   setPayrollID(record.id);
                   setSlipOpen(roles.includes("can_print_slip") ? true : false);
+                  break;
+                case "allowance":
+                  setPayrollID(record.id);
+                  setOpenAllowance(true);
+                  break;
+                case "deduction":
+                  setPayrollID(record.id);
+                  setOpenDeduction(true);
                   break;
                 default:
               }
@@ -276,6 +297,18 @@ export const StaffPayroll = (props) => {
         open={slipOpen}
         setOpen={setSlipOpen}
         dataId={payrollID}
+        staffId={dataId}
+      />
+      <PayrollAllowance
+        open={openAllowance}
+        setOpen={setOpenAllowance}
+        payrollId={payrollID}
+        staffId={dataId}
+      />
+      <PayrollDeduction
+        open={openDeduction}
+        setOpen={setOpenDeduction}
+        payrollId={payrollID}
         staffId={dataId}
       />
       <TableShared
