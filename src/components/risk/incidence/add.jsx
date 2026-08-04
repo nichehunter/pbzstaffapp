@@ -14,18 +14,26 @@ import { hrmsCRUD } from "../../../actions/hrms";
 const incidenceSchema = Yup.object().shape({
   instance: Yup.string().required("This field is required"),
   priority: Yup.string().required("This field is required"),
-  subject: Yup.string().required("This field is required"),
-  root: Yup.string().required("This field is required"),
+  subject: Yup.string()
+    .max(100, "Subject must not be more than 100 characters")
+    .required("This field is required"),
+  root: Yup.string()
+    .max(100, "Root causes must not be more than 100 characters")
+    .required("This field is required"),
   department: Yup.string().required("This field is required"),
+  description: Yup.string().max(
+    500,
+    "Description must not be more than 500 characters",
+  ),
   start_time: Yup.date()
     .max(
       new Date(new Date().setHours(0, 0, 0, 0)),
-      "Start date must not be more than today"
+      "Start date must not be more than today",
     )
     .required("This field is required"),
   end_time: Yup.date().min(
     Yup.ref("start_time"),
-    "end date must be more than start date"
+    "end date must be more than start date",
   ),
 });
 
@@ -77,7 +85,7 @@ export const IncidenceAdd = (props) => {
   useEffect(() => {
     setTimeout(() => {
       hrmsCRUD.loadStaffBranch(1, 0, staff.id, true, "", "").then((resp) => {
-        if (resp.data.results[0].branch.branch_code === "999") {
+        if (resp.data.results[0].branch.branch_code === "201") {
           setStaffDept(resp.data.results[0].department.department_name);
         } else {
           setStaffDept(resp.data.results[0].branch.branch_name);
@@ -134,7 +142,7 @@ export const IncidenceAdd = (props) => {
               <Message showIcon type={"success"} closable>
                 Thank you....! another incidence has been reported.
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
             setIndex(index + 1);
             resetForm();
@@ -143,13 +151,31 @@ export const IncidenceAdd = (props) => {
             setOpen(false);
           })
           .catch((error) => {
+            const responseData = error?.response?.data;
+            let errorMessage = "Something went wrong. Please try again.";
+
+            if (typeof responseData === "string") {
+              errorMessage = responseData;
+            } else if (responseData?.error) {
+              errorMessage = responseData.error;
+            } else if (responseData?.detail) {
+              errorMessage = responseData.detail;
+            } else if (responseData?.message) {
+              errorMessage = responseData.message;
+            } else if (typeof responseData === "object") {
+              const firstKey = Object.keys(responseData)[0];
+              const firstError = responseData[firstKey];
+              if (Array.isArray(firstError)) {
+                errorMessage = `${firstError[0]}`;
+              }
+            }
             setLoading(false);
             setSubmitting(false);
             toaster.push(
               <Message showIcon type={"error"} closable>
-                {error.message}
+                {errorMessage}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           });
       }, 2000);
@@ -160,22 +186,42 @@ export const IncidenceAdd = (props) => {
     setTimeout(() => {
       hrmsCRUD
         .loadDepartmentByCode(
-          formik.values.instance === 1
-            ? ["com"]
-            : formik.values.instance === 2 ||
-              formik.values.instance === 3 ||
-              formik.values.instance === 10 ||
-              formik.values.instance === 11
-            ? ["ict", "bo"]
-            : formik.values.instance === 4 ||
-              formik.values.instance === 5 ||
-              formik.values.instance === 6
-            ? ["ict"]
-            : formik.values.instance === 7 ||
-              formik.values.instance === 8 ||
-              formik.values.instance === 9
-            ? ["hra"]
-            : null
+          formik.values.instance === 13
+            ? ["ict", "dhra"]
+            : formik.values.instance === 10 || formik.values.instance === 11
+              ? ["ict", "dhra", "hbo"]
+              : formik.values.instance === 14 || formik.values.instance === 25
+                ? ["ict", "dhra", "doc"]
+                : formik.values.instance === 15
+                  ? ["dhra", "doc"]
+                  : formik.values.instance === 38 ||
+                      formik.values.instance === 39 ||
+                      formik.values.instance === 5
+                    ? ["ict", "hbo"]
+                    : formik.values.instance === 4 ||
+                        formik.values.instance === 6 ||
+                        formik.values.instance === 46
+                      ? ["ict"]
+                      : formik.values.instance === 1 ||
+                          formik.values.instance === 32 ||
+                          formik.values.instance === 33 ||
+                          formik.values.instance === 51
+                        ? ["hbo"]
+                        : formik.values.instance === 27 ||
+                            formik.values.instance === 28 ||
+                            formik.values.instance === 29 ||
+                            formik.values.instance === 31
+                          ? ["doc"]
+                          : formik.values.instance === 16 ||
+                              formik.values.instance === 17 ||
+                              formik.values.instance === 19 ||
+                              formik.values.instance === 21 ||
+                              formik.values.instance === 26 ||
+                              formik.values.instance === 7 ||
+                              formik.values.instance === 8 ||
+                              formik.values.instance === 9
+                            ? ["dhra"]
+                            : null,
         )
         .then((resp) => {
           setDepartment(resp.data);
@@ -188,7 +234,7 @@ export const IncidenceAdd = (props) => {
     setTimeout(() => {
       hrmsCRUD
         .loadDepartmentAll(
-          formik.values.department ? formik.values.department : null
+          formik.values.department ? formik.values.department : null,
         )
         .then((resp) => {
           setSubDepartment(resp.data);
@@ -349,10 +395,18 @@ export const IncidenceAdd = (props) => {
                       onChange={(e) => {
                         formik.setFieldValue(
                           "start_time",
-                          moment(e).format("YYYY-MM-DD HH:mm:ss.SSSSSSZ")
+                          moment(e).format("YYYY-MM-DD HH:mm:ss.SSSSSSZ"),
                         );
                       }}
                       format="dd MMM yyyy hh:mm:ss"
+                      status={
+                        formik.touched.start_time &&
+                        formik.errors.start_time &&
+                        "error"
+                      }
+                      disabledDate={(date) =>
+                        date.getTime() > new Date().getTime()
+                      }
                     />
                     {formik.touched.start_time && formik.errors.start_time && (
                       <div
@@ -369,14 +423,32 @@ export const IncidenceAdd = (props) => {
                 <div className="col-md-4 col-sm-12">
                   <div className="form-group">
                     <label className="text-body mb-2">End Date & Time</label>
+
                     <DatePicker
                       onChange={(e) => {
                         formik.setFieldValue(
                           "end_time",
-                          moment(e).format("YYYY-MM-DD HH:mm:ss.SSSSSSZ")
+                          moment(e).format("YYYY-MM-DD HH:mm:ss.SSSSSSZ"),
                         );
                       }}
                       format="dd MMM yyyy hh:mm:ss"
+                      status={
+                        formik.touched.end_time &&
+                        formik.errors.end_time &&
+                        "error"
+                      }
+                      disabledDate={(date) => {
+                        const now = new Date();
+                        const start = formik.values.start_time
+                          ? new Date(formik.values.start_time)
+                          : null;
+
+                        // Disable if date is in the future OR before start_time
+                        return (
+                          date.getTime() > now.getTime() ||
+                          (start && date.getTime() < start.getTime())
+                        );
+                      }}
                     />
                     {formik.touched.end_time && formik.errors.end_time && (
                       <div
@@ -487,7 +559,7 @@ export const IncidenceAdd = (props) => {
                       onChange={() => {
                         formik.setFieldValue(
                           "is_financial_loss",
-                          !formik.values.is_financial_loss
+                          !formik.values.is_financial_loss,
                         );
                       }}
                     />
@@ -527,9 +599,25 @@ export const IncidenceAdd = (props) => {
                     <label>Descriptions</label>
                     <TextArea
                       className="form-control"
-                      rows={4}
+                      rows={5}
                       {...formik.getFieldProps("description")}
+                      status={
+                        formik.touched.description &&
+                        formik.errors.description &&
+                        "error"
+                      }
                     />
+                    {formik.touched.description &&
+                      formik.errors.description && (
+                        <div
+                          className="fw-light mt-1"
+                          style={{ fontSize: "12px" }}
+                        >
+                          <span role="alert" className="text-danger">
+                            {formik.errors.description}
+                          </span>
+                        </div>
+                      )}
                   </div>
                 </div>
               </div>
