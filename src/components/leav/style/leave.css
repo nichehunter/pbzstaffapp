@@ -1,0 +1,298 @@
+/* ========================================================= PBZ HRMS - LEAVE ========================================================= */
+.pbz-leave {
+  padding-bottom: 25px;
+} /* ========================================================= PAGE HEADER ========================================================= */
+.pbz-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--pbz-entry-border);
+}
+.pbz-page-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+  color: var(--pbz-entry-gold-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.pbz-page-eyebrow .anticon {
+  font-size: 13px;
+}
+.pbz-page-title {
+  margin: 0;
+  color: var(--pbz-entry-charcoal);
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.pbz-page-description {
+  margin: 5px 0 0;
+  color: var(--pbz-entry-muted);
+  font-size: 12px;
+  line-height: 1.5;
+} /* ========================================================= MAIN LAYOUT ========================================================= */
+.pbz-leave-layout {
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+} /* ========================================================= SIDEBAR ========================================================= */
+.pbz-leave-sidebar {
+  overflow: hidden;
+  background: var(--pbz-entry-white);
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px var(--pbz-entry-shadow);
+}
+.pbz-leave-nav-header {
+  padding: 15px 16px 12px;
+  border-bottom: 1px solid var(--pbz-entry-border);
+  background: var(--pbz-entry-bg);
+}
+.pbz-leave-nav-header span {
+  display: block;
+  color: var(--pbz-entry-charcoal);
+  font-size: 13px;
+  font-weight: 700;
+}
+.pbz-leave-nav-header small {
+  display: block;
+  margin-top: 3px;
+  color: var(--pbz-entry-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+} /* ========================================================= NAVIGATION ========================================================= */
+.pbz-leave-nav {
+  width: 100% !important;
+  padding: 7px !important;
+}
+.pbz-leave-nav .rs-nav-item {
+  margin-bottom: 3px;
+}
+.pbz-leave-nav .rs-nav-item:last-child {
+  margin-bottom: 0;
+}
+.pbz-leave-nav .rs-nav-item > a {
+  height: auto !important;
+  min-height: 58px;
+  padding: 9px 10px !important;
+  border-radius: 7px;
+  color: var(--pbz-entry-text) !important;
+  transition: all 0.2s ease;
+}
+.pbz-leave-nav .rs-nav-item > a:hover {
+  background: var(--pbz-entry-soft) !important;
+} /* ========================================================= ACTIVE NAV ========================================================= */
+.pbz-leave-nav .rs-nav-item.rs-nav-item-active > a {
+  background: var(--pbz-entry-charcoal) !important;
+  color: var(--pbz-entry-white) !important;
+}
+.pbz-leave-nav .rs-nav-item.rs-nav-item-active > a:hover {
+  background: var(--pbz-entry-charcoal) !important;
+} /* ========================================================= NAV CONTENT ========================================================= */
+.pbz-leave-nav-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pbz-leave-nav-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  color: var(--pbz-entry-gold-dark);
+  background: var(--pbz-entry-soft);
+  font-size: 15px;
+}
+.rs-nav-item-active .pbz-leave-nav-icon {
+  color: var(--pbz-entry-charcoal);
+  background: var(--pbz-entry-gold);
+}
+.pbz-leave-nav-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.pbz-leave-nav-text strong {
+  color: var(--pbz-entry-charcoal);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.pbz-leave-nav-text span {
+  margin-top: 2px;
+  color: var(--pbz-entry-muted);
+  font-size: 10px;
+  line-height: 1.3;
+}
+.rs-nav-item-active .pbz-leave-nav-text small {
+  color: rgba(255, 255, 255, 0.65);
+} /* ========================================================= LEAVE BALANCE ========================================================= */
+.pbz-leave-balance {
+  margin: 8px;
+  padding: 12px;
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 8px;
+  background: var(--pbz-entry-bg);
+}
+.pbz-leave-balance-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.pbz-leave-balance-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--pbz-entry-charcoal);
+  background: var(--pbz-entry-gold);
+  font-size: 13px;
+}
+.pbz-leave-balance-header span {
+  display: block;
+  color: var(--pbz-entry-gold-dark);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.pbz-leave-balance-header strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--pbz-entry-charcoal);
+  font-size: 11px;
+  font-weight: 600;
+} /* ========================================================= BALANCE VALUE ========================================================= */
+.pbz-leave-balance-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--pbz-entry-border);
+}
+.pbz-leave-balance-value strong {
+  color: var(--pbz-entry-charcoal);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 700;
+}
+.pbz-leave-balance-value span {
+  color: var(--pbz-entry-muted);
+  font-size: 10px;
+} /* ========================================================= BALANCE FOOTER ========================================================= */
+.pbz-leave-balance-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+}
+.pbz-leave-balance-footer span {
+  color: var(--pbz-entry-text);
+  font-size: 10px;
+  font-weight: 600;
+}
+.pbz-leave-balance-footer small {
+  color: var(--pbz-entry-muted);
+  font-size: 9px;
+} /* ========================================================= CONTENT CARD ========================================================= */
+.pbz-leave-content {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--pbz-entry-white);
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px var(--pbz-entry-shadow);
+} /* ========================================================= CONTENT HEADER ========================================================= */
+.pbz-leave-content-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--pbz-entry-border);
+  background: var(--pbz-entry-bg);
+}
+.pbz-leave-content-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--pbz-entry-charcoal);
+  background: var(--pbz-entry-gold);
+  font-size: 17px;
+}
+.pbz-leave-content-header span {
+  display: block;
+  color: var(--pbz-entry-gold-dark);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.pbz-leave-content-header h2 {
+  margin: 2px 0 1px;
+  color: var(--pbz-entry-charcoal);
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.pbz-leave-content-header p {
+  margin: 0;
+  color: var(--pbz-entry-muted);
+  font-size: 11px;
+} /* ========================================================= CONTENT BODY ========================================================= */
+.pbz-leave-content-body {
+  min-width: 0;
+  padding: 18px;
+} /* ========================================================= RESPONSIVE ========================================================= */
+@media (max-width: 900px) {
+  .pbz-leave-layout {
+    grid-template-columns: 1fr;
+  }
+  .pbz-leave-sidebar {
+    width: 100%;
+  }
+  .pbz-leave-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+  .pbz-leave-nav .rs-nav-item {
+    margin-bottom: 0;
+  }
+  .pbz-leave-balance {
+    margin: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .pbz-page-title {
+    font-size: 19px;
+  }
+  .pbz-page-description {
+    font-size: 11px;
+  }
+  .pbz-leave-nav {
+    grid-template-columns: 1fr;
+  }
+  .pbz-leave-content-header {
+    padding: 13px;
+  }
+  .pbz-leave-content-body {
+    padding: 12px;
+  }
+}

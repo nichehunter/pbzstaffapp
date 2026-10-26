@@ -1,3 +1,20 @@
+:root {
+  /* PBZ ENTRY / AUTH PALETTE */
+  --pbz-entry-bg: #f7f4ee;
+  --pbz-entry-charcoal: #18212b;
+  --pbz-entry-charcoal-light: #232e39;
+  --pbz-entry-gold: #c79a45;
+  --pbz-entry-gold-dark: #a97832;
+  --pbz-entry-soft: #eee7d8;
+  --pbz-entry-white: #ffffff;
+  --pbz-entry-text: #20252b;
+  --pbz-entry-muted: #747b82;
+  --pbz-entry-border: #e6e0d6;
+  --pbz-entry-success: #718b78;
+  --pbz-entry-danger: #b85c5c;
+  --pbz-entry-shadow: rgba(24, 33, 43, 0.08);
+}
+
 .printHead {
   display: none;
 }
@@ -193,4 +210,26 @@ body > iframe {
   box-shadow:
     0 6px 14px rgba(0, 0, 0, 0.1),
     0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.ant-input:-webkit-autofill,
+.ant-input:-webkit-autofill:hover,
+.ant-input:-webkit-autofill:focus,
+.ant-input:-webkit-autofill:active,
+.ant-input-affix-wrapper input:-webkit-autofill,
+.ant-input-affix-wrapper input:-webkit-autofill:hover,
+.ant-input-affix-wrapper input:-webkit-autofill:focus,
+.ant-input-affix-wrapper input:-webkit-autofill:active,
+.ant-input-password input:-webkit-autofill,
+.ant-input-password input:-webkit-autofill:hover,
+.ant-input-password input:-webkit-autofill:focus,
+.ant-input-password input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+
+  -webkit-text-fill-color: #172033 !important;
+
+  caret-color: #172033 !important;
+
+  transition: background-color 9999s ease-in-out 0s !important;
 }

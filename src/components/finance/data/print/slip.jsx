@@ -11,6 +11,9 @@ export const SalarySlip = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  console.log(dataId, staffId);
+  
+
   useEffect(() => {
     if (dataId && staffId) {
       setLoading(true);

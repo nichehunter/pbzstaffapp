@@ -7,6 +7,7 @@ import { useCountdown } from "../../../context/CountdownContext";
 import { useAuth } from "../../../context/AuthContext";
 import { authActions } from "../../../actions/auth";
 import { char } from "../../../utils";
+import "./styles/otp.css";
 
 export const AuthOTP = () => {
   const [isError, setIsError] = useState(false);
@@ -82,116 +83,219 @@ export const AuthOTP = () => {
 
   return (
     <>
-      <div className="container-fluid position-relative">
-        <div className="row">
-          <div className="col-md-4" />
-          <div
-            className="col-md-8 d-flex flex-column justify-content-center align-items-center p-5 text-dark"
-            style={{ backgroundColor: "#F5F5F5", minHeight: "100vh" }}
-          >
-            <p className="h1 fw-bold text-center mb-4">
-              The People's Bank of Zanzibar
-            </p>
-            <p className="h5 text-center mb-4">
-              Let's achieve great results together today.
-            </p>
-            <p className="h2 text-center fw-bold">
-              {currentTime.toLocaleTimeString()}
-            </p>
-          </div>
-          <Card className="login-card ps-4 pe-4">
-            <div className="row">
-              <div className="col-12">
-                <div className="row">
-                  <div className="col-12 text-center">
-                    <img
-                      width={250}
-                      className="mt-0 mb-2"
-                      src="assets/images/logo/pbz1.png"
-                      alt=""
-                    />
+      <div className="pbz-otp-page">
+        <div className="pbz-otp-layout">
+          {/* ================================
+        LEFT BRAND PANEL
+    ================================= */}
+
+          <section className="pbz-otp-brand">
+            <div className="pbz-otp-pattern" />
+
+            <div className="pbz-otp-brand-content">
+              <div className="pbz-otp-brand-top">
+                <img
+                  src="assets/images/logo/pbz1.png"
+                  alt="People's Bank of Zanzibar"
+                  className="pbz-otp-brand-logo"
+                />
+
+                <div className="pbz-otp-badge">STAFF PORTAL</div>
+              </div>
+
+              <div className="pbz-otp-brand-message">
+                <span className="pbz-otp-overline">SECURE EMPLOYEE ACCESS</span>
+
+                <h1>
+                  Protecting your
+                  <br />
+                  <span>PBZ account.</span>
+                </h1>
+
+                <p>
+                  An additional verification step helps keep your employee
+                  information and account secure.
+                </p>
+
+                <div className="pbz-otp-security-list">
+                  <div className="pbz-otp-security-item">
+                    <div className="pbz-otp-security-icon">
+                      <span className="bi bi-shield-lock" />
+                    </div>
+
+                    <div>
+                      <strong>Secure verification</strong>
+                      <span>Verify your identity before continuing.</span>
+                    </div>
                   </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-12">
-                    <p className="text-center h3">
-                      The People's Bank of Zanzibar
-                    </p>
-                    <p className="text-center h5 mt-3 fw-bold ff-primary">
-                      OTP VERIFICATION
-                    </p>
-                    {isError ? (
-                      <div className="alert alert-danger mt-3">
-                        <div className="h6 text-danger alert-text mt-2 fs-14 text-center">
-                          {error}
-                        </div>
-                      </div>
-                    ) : null}
+
+                  <div className="pbz-otp-security-item">
+                    <div className="pbz-otp-security-icon">
+                      <span className="bi bi-person-check" />
+                    </div>
+
+                    <div>
+                      <strong>Staff account protection</strong>
+                      <span>Your employee information remains protected.</span>
+                    </div>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-12">
-                    <hr />
-                    <div className="row ms-2 me-2 mt-3">
-                      <div className="col-12">
-                        <div className="form-group text-center fs-2">
-                          <ReactCodeInput
-                            id="pinCode"
-                            type="text"
-                            fields={6}
-                            onChange={(e) => {
-                              setOtpCode(char.toUpperCase(e));
-                            }}
-                            value={char.toUpperCase(otpCode)}
-                          />
-                        </div>
-                      </div>
+
+                  <div className="pbz-otp-security-item">
+                    <div className="pbz-otp-security-icon">
+                      <span className="bi bi-check2-circle" />
                     </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-12 text-center mt-3">
-                        {isValid && isActive ? (
-                          <p>
-                            <span className="fw-bold">
-                              Remaining Time &nbsp;{" "}
-                            </span>{" "}
-                            <span className="h6 fs-16">
-                              {minutes} : {seconds}
-                            </span>
-                          </p>
-                        ) : !isValid ? (
-                          handleLogout()
-                        ) : null}
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-12 text-center mt-3">
-                        <p>
-                          <span className="fw-bold">Not you ? &nbsp;</span>{" "}
-                          <Link to={"#"} onClick={handleLogout}>
-                            Please Login
-                          </Link>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="row mt-5">
-                      <div className="col-12 text-center">
-                        <p className="mb-0">
-                          © {new Date().getFullYear()} &nbsp;{" "}
-                          <span className="fw-bold text-dark">PBZ BANK</span>
-                        </p>
-                        <p className="fw-light h6 text-success fs-10 fst-italic mt-2">
-                          {" "}
-                          ---- The People’s Bank, The People’s Choice ----
-                        </p>
-                      </div>
+
+                    <div>
+                      <strong>One-time verification</strong>
+                      <span>
+                        Your verification code can only be used for this login.
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <div className="pbz-otp-brand-footer">
+                <div>
+                  <strong>The People's Bank of Zanzibar</strong>
+
+                  <span>The People's Bank, The People's Choice</span>
+                </div>
+
+                <div className="pbz-otp-clock">
+                  <span className="bi bi-clock" />
+
+                  <div>
+                    <strong>{currentTime.toLocaleTimeString()}</strong>
+
+                    <small>
+                      {currentTime.toLocaleDateString(undefined, {
+                        weekday: "short",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </small>
+                  </div>
+                </div>
+              </div>
             </div>
-          </Card>
+          </section>
+
+          {/* ================================
+        OTP AREA
+    ================================= */}
+
+          <section className="pbz-otp-side">
+            <div className="pbz-otp-card">
+              {/* TOP */}
+              <div className="pbz-otp-card-top">
+                <span className="pbz-otp-card-label">STAFF PORTAL</span>
+
+                <div className="pbz-otp-secure">
+                  <span className="bi bi-shield-check" />
+                  Secure
+                </div>
+              </div>
+
+              {/* ICON */}
+              <div className="pbz-otp-main-icon">
+                <div className="pbz-otp-icon-circle">
+                  <span className="bi bi-phone" />
+                </div>
+              </div>
+
+              {/* HEADING */}
+              <div className="pbz-otp-heading">
+                <h2>Verify your identity</h2>
+
+                <p>
+                  Enter the six-digit verification code sent to your registered
+                  contact.
+                </p>
+              </div>
+
+              {/* ERROR */}
+              {isError && (
+                <div className="pbz-otp-alert">
+                  <span className="bi bi-exclamation-circle-fill" />
+
+                  <div>
+                    <strong>Verification unsuccessful</strong>
+
+                    <span>{error}</span>
+                  </div>
+                </div>
+              )}
+
+              {/* OTP INPUT */}
+              <div className="pbz-otp-input-section">
+                <label>Verification Code</label>
+
+                <div className="pbz-otp-input-wrapper">
+                  <ReactCodeInput
+                    id="pinCode"
+                    type="text"
+                    fields={6}
+                    onChange={(value) => {
+                      setOtpCode(char.toUpperCase(value));
+                    }}
+                    value={char.toUpperCase(otpCode)}
+                  />
+                </div>
+              </div>
+
+              {/* TIMER */}
+              <div className="pbz-otp-timer-section">
+                {isValid && isActive ? (
+                  <>
+                    <span className="bi bi-clock" />
+
+                    <span className="pbz-otp-timer-label">Code expires in</span>
+
+                    <strong>
+                      {minutes} : {seconds}
+                    </strong>
+                  </>
+                ) : !isValid ? (
+                  handleLogout()
+                ) : null}
+              </div>
+
+              {/* INFORMATION */}
+              <div className="pbz-otp-info">
+                <span className="bi bi-info-circle" />
+
+                <p>
+                  Enter the verification code exactly as received. Do not share
+                  this code with anyone.
+                </p>
+              </div>
+
+              {/* LOGIN AGAIN */}
+              <div className="pbz-otp-login-again">
+                <span>Not your account?</span>
+
+                <Link to="#" onClick={handleLogout}>
+                  Sign in again
+                  <span className="bi bi-arrow-right" />
+                </Link>
+              </div>
+
+              {/* FOOTER */}
+              <div className="pbz-otp-card-footer">
+                <div className="pbz-otp-footer-links">
+                  <span>PBZ Staff Portal</span>
+                  <i>•</i>
+                  <span>Secure Verification</span>
+                </div>
+
+                <span>
+                  © {new Date().getFullYear()} People's Bank of Zanzibar
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>

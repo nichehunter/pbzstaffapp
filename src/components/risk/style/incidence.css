@@ -1,0 +1,370 @@
+/* =========================================================
+   PBZ HRMS - INCIDENCE REPORT
+========================================================= */
+
+.pbz-incidence {
+  padding-bottom: 25px;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.pbz-incidence-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid var(--pbz-entry-border);
+}
+
+.pbz-incidence-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.pbz-incidence-eyebrow .anticon {
+  font-size: 13px;
+}
+
+.pbz-incidence-title {
+  margin: 0;
+
+  color: var(--pbz-entry-charcoal);
+
+  font-size: 22px;
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+.pbz-incidence-description {
+  margin: 5px 0 0;
+
+  max-width: 650px;
+
+  color: var(--pbz-entry-muted);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   HEADER ACTION
+========================================================= */
+
+.pbz-incidence-header-action {
+  flex-shrink: 0;
+}
+
+.pbz-incidence-new-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 34px;
+
+  padding: 7px 13px;
+
+  color: var(--pbz-entry-charcoal);
+
+  background: var(--pbz-entry-gold);
+
+  border: 1px solid var(--pbz-entry-gold);
+
+  border-radius: 7px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.pbz-incidence-new-btn:hover {
+  background: var(--pbz-entry-gold-dark);
+
+  border-color: var(--pbz-entry-gold-dark);
+
+  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.1);
+
+  transform: translateY(-1px);
+}
+
+.pbz-incidence-new-btn:active {
+  transform: translateY(0);
+}
+
+.pbz-incidence-new-btn .anticon {
+  font-size: 12px;
+}
+
+/* =========================================================
+   TABLE CONTENT
+========================================================= */
+
+.pbz-incidence-content {
+  overflow: hidden;
+
+  background: var(--pbz-entry-white);
+
+  border: 1px solid var(--pbz-entry-border);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 4px 14px var(--pbz-entry-shadow),
+    0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+/* =========================================================
+   COMMON BADGE
+========================================================= */
+
+.pbz-incidence-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 58px;
+
+  padding: 4px 7px;
+
+  border-radius: 5px;
+
+  font-size: 9px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  text-transform: capitalize;
+}
+
+/* =========================================================
+   PRIORITY - LOW
+========================================================= */
+
+.pbz-incidence-priority-low {
+  color: #166534;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================================
+   PRIORITY - NORMAL
+========================================================= */
+
+.pbz-incidence-priority-normal {
+  color: #075985;
+
+  background: #e0f2fe;
+
+  border: 1px solid #bae6fd;
+}
+
+/* =========================================================
+   PRIORITY - HIGH
+========================================================= */
+
+.pbz-incidence-priority-high {
+  color: #a16207;
+
+  background: #fefce8;
+
+  border: 1px solid #fde68a;
+}
+
+/* =========================================================
+   PRIORITY - CRITICAL
+========================================================= */
+
+.pbz-incidence-priority-critical {
+  color: #b91c1c;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   PRIORITY - DEFAULT
+========================================================= */
+
+.pbz-incidence-priority-default {
+  color: var(--pbz-entry-muted);
+
+  background: var(--pbz-entry-bg);
+
+  border: 1px solid var(--pbz-entry-border);
+}
+
+/* =========================================================
+   STATUS - OPEN
+========================================================= */
+
+.pbz-incidence-status-open {
+  color: #166534;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================================
+   STATUS - PENDING
+========================================================= */
+
+.pbz-incidence-status-pending {
+  color: #075985;
+
+  background: #e0f2fe;
+
+  border: 1px solid #bae6fd;
+}
+
+/* =========================================================
+   STATUS - RESOLVED
+========================================================= */
+
+.pbz-incidence-status-resolved {
+  color: #166534;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================================
+   STATUS - CLOSED
+========================================================= */
+
+.pbz-incidence-status-closed {
+  color: #52525b;
+
+  background: #f4f4f5;
+
+  border: 1px solid #e4e4e7;
+}
+
+/* =========================================================
+   STATUS - REJECTED
+========================================================= */
+
+.pbz-incidence-status-rejected {
+  color: #b91c1c;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   STATUS - DEFAULT
+========================================================= */
+
+.pbz-incidence-status-default {
+  color: var(--pbz-entry-muted);
+
+  background: var(--pbz-entry-bg);
+
+  border: 1px solid var(--pbz-entry-border);
+}
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.pbz-incidence-action {
+  width: 28px;
+  height: 28px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color: var(--pbz-entry-muted) !important;
+
+  border-radius: 6px;
+}
+
+.pbz-incidence-action:hover {
+  color: var(--pbz-entry-charcoal) !important;
+
+  background: var(--pbz-entry-soft) !important;
+}
+
+.pbz-incidence-action .anticon {
+  font-size: 16px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .pbz-incidence-page-header {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .pbz-incidence-header-action {
+    width: 100%;
+  }
+
+  .pbz-incidence-new-btn {
+    width: 100%;
+  }
+
+  .pbz-incidence-title {
+    font-size: 19px;
+  }
+
+  .pbz-incidence-description {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pbz-incidence-page-header {
+    margin-bottom: 14px;
+  }
+
+  .pbz-incidence-eyebrow {
+    font-size: 9px;
+  }
+
+  .pbz-incidence-content {
+    border-radius: 8px;
+  }
+}

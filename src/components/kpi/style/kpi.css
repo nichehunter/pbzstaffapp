@@ -1,0 +1,708 @@
+/* =========================================================
+   PBZ HRMS - KPI
+========================================================= */
+
+.pbz-kpi {
+  padding-bottom: 25px;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.pbz-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--pbz-entry-border);
+}
+
+.pbz-page-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.pbz-page-eyebrow .anticon {
+  font-size: 13px;
+}
+
+.pbz-page-title {
+  margin: 0;
+
+  color: var(--pbz-entry-charcoal);
+
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.pbz-page-description {
+  margin: 5px 0 0;
+
+  color: var(--pbz-entry-muted);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.pbz-kpi-layout {
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+/* =========================================================
+   MAIN KPI SECTION
+========================================================= */
+
+.pbz-kpi-section {
+  overflow: hidden;
+
+  background: var(--pbz-entry-white);
+
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 10px;
+
+  box-shadow: 0 4px 14px var(--pbz-entry-shadow);
+}
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.pbz-kpi-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 13px 16px;
+
+  border-bottom: 1px solid var(--pbz-entry-border);
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-section-header span {
+  display: block;
+
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.pbz-kpi-section-header h2 {
+  margin: 2px 0 0;
+
+  color: var(--pbz-entry-charcoal);
+
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.pbz-kpi-section-header small {
+  color: var(--pbz-entry-muted);
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   KPI GRID
+========================================================= */
+
+.pbz-kpi-grid {
+  display: grid;
+
+  /*
+    Fixed compact cards on desktop.
+    They will NOT stretch to fill the entire row.
+  */
+  grid-template-columns: repeat(auto-fill, 230px);
+
+  gap: 14px;
+
+  padding: 14px;
+
+  align-items: start;
+}
+
+/* =========================================================
+   KPI CARD
+========================================================= */
+
+.pbz-kpi-card {
+  position: relative;
+
+  width: 230px;
+  height: 168px;
+
+  min-width: 0;
+
+  padding: 11px 12px;
+
+  background: var(--pbz-entry-white);
+
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 9px;
+
+  /*
+    Compact professional shadow
+  */
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.08),
+    0 1px 2px rgba(15, 23, 42, 0.04);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.pbz-kpi-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(0, 119, 182, 0.3);
+
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.12),
+    0 2px 5px rgba(15, 23, 42, 0.05);
+}
+
+.pbz-kpi-card:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.pbz-kpi-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 7px;
+
+  margin-bottom: 7px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.pbz-kpi-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  max-width: 110px;
+
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pbz-kpi-status .anticon {
+  font-size: 9px;
+}
+
+/* =========================================================
+   STATUS - DRAFT
+========================================================= */
+
+.pbz-kpi-status-draft {
+  color: #475569;
+
+  background: #f1f5f9;
+
+  border: 1px solid #e2e8f0;
+}
+
+/* =========================================================
+   STATUS - SUBMITTED
+========================================================= */
+
+.pbz-kpi-status-submitted {
+  color: #075985;
+
+  background: #e0f2fe;
+
+  border: 1px solid #bae6fd;
+}
+
+/* =========================================================
+   STATUS - REJECTED
+========================================================= */
+
+.pbz-kpi-status-rejected {
+  color: #b91c1c;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   STATUS - APPROVED
+========================================================= */
+
+.pbz-kpi-status-approved {
+  color: #166534;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================================
+   STATUS - ARCHIVED
+========================================================= */
+
+.pbz-kpi-status-archived {
+  color: #52525b;
+
+  background: #f4f4f5;
+
+  border: 1px solid #e4e4e7;
+}
+
+/* =========================================================
+   STATUS - DEFAULT
+========================================================= */
+
+.pbz-kpi-status-default {
+  color: var(--pbz-entry-muted);
+
+  background: var(--pbz-entry-bg);
+
+  border: 1px solid var(--pbz-entry-border);
+}
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.pbz-kpi-year {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 3px;
+
+  flex-shrink: 0;
+
+  color: var(--pbz-entry-muted);
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.pbz-kpi-year .anticon {
+  font-size: 9px;
+}
+
+/* =========================================================
+   KPI ICON
+========================================================= */
+
+.pbz-kpi-icon {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 7px;
+
+  border-radius: 6px;
+
+  color: var(--pbz-entry-charcoal);
+
+  background: var(--pbz-entry-soft);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   KPI CONTENT
+========================================================= */
+
+.pbz-kpi-card-content {
+  min-width: 0;
+}
+
+.pbz-kpi-code {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 8px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pbz-kpi-card-content h3 {
+  margin: 0;
+
+  color: var(--pbz-entry-charcoal);
+
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 700;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   KPI FOOTER
+========================================================= */
+
+.pbz-kpi-card-footer {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 6px;
+
+  padding-top: 7px;
+
+  border-top: 1px solid var(--pbz-entry-border);
+
+  color: var(--pbz-entry-muted);
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.pbz-kpi-arrow {
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  color: var(--pbz-entry-charcoal);
+
+  background: var(--pbz-entry-soft);
+
+  font-size: 8px;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.pbz-kpi-card:hover .pbz-kpi-arrow {
+  background: var(--pbz-entry-gold);
+
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.pbz-kpi-empty {
+  padding: 50px 20px;
+
+  text-align: center;
+}
+
+.pbz-kpi-empty-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 11px;
+
+  border-radius: 8px;
+
+  color: var(--pbz-entry-gold-dark);
+
+  background: var(--pbz-entry-soft);
+
+  font-size: 19px;
+}
+
+.pbz-kpi-empty h3 {
+  margin: 0;
+
+  color: var(--pbz-entry-charcoal);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pbz-kpi-empty p {
+  margin: 5px 0 0;
+
+  color: var(--pbz-entry-muted);
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pbz-kpi-pagination {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 11px 14px;
+
+  border-top: 1px solid var(--pbz-entry-border);
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-pagination .rs-pagination {
+  margin: 0;
+}
+
+.pbz-kpi-pagination .rs-pagination-btn {
+  min-width: 29px;
+  height: 29px;
+
+  font-size: 10px;
+}
+
+.pbz-kpi-pagination .rs-pagination-btn.rs-pagination-btn-active {
+  color: var(--pbz-entry-charcoal);
+
+  background: var(--pbz-entry-gold);
+
+  border-color: var(--pbz-entry-gold);
+}
+
+/* =========================================================
+   SKELETON CARD
+========================================================= */
+
+.pbz-kpi-skeleton {
+  cursor: default;
+
+  pointer-events: none;
+}
+
+.pbz-kpi-skeleton-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+}
+
+.pbz-kpi-skeleton-status {
+  width: 50px;
+  height: 15px;
+
+  border-radius: 4px;
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-skeleton-year {
+  width: 35px;
+  height: 8px;
+
+  border-radius: 4px;
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-skeleton-icon {
+  width: 29px;
+  height: 29px;
+
+  margin-bottom: 7px;
+
+  border-radius: 6px;
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-skeleton-line {
+  height: 7px;
+
+  margin-bottom: 6px;
+
+  border-radius: 4px;
+
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-kpi-skeleton-line.large {
+  width: 65%;
+}
+
+.pbz-kpi-skeleton-line.medium {
+  width: 85%;
+}
+
+.pbz-kpi-skeleton-line.small {
+  width: 40%;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .pbz-kpi-grid {
+    grid-template-columns: repeat(auto-fill, 220px);
+  }
+
+  .pbz-kpi-card {
+    width: 220px;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+  .pbz-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    padding: 10px;
+  }
+
+  .pbz-kpi-card {
+    width: 100%;
+    height: 165px;
+  }
+
+  .pbz-kpi-card-content h3 {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+  .pbz-page-title {
+    font-size: 19px;
+  }
+
+  .pbz-page-description {
+    font-size: 11px;
+  }
+
+  .pbz-kpi-section-header {
+    padding: 12px 13px;
+  }
+
+  .pbz-kpi-grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding: 10px;
+  }
+
+  .pbz-kpi-card {
+    width: 100%;
+    height: 165px;
+  }
+
+  .pbz-kpi-pagination {
+    justify-content: center;
+
+    overflow-x: auto;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+  .pbz-kpi-card {
+    height: 160px;
+
+    padding: 10px 11px;
+  }
+
+  .pbz-kpi-card-footer {
+    left: 11px;
+    right: 11px;
+  }
+
+  .pbz-kpi-section-header {
+    gap: 8px;
+  }
+
+  .pbz-kpi-section-header h2 {
+    font-size: 14px;
+  }
+}

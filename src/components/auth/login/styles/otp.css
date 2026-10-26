@@ -1,0 +1,784 @@
+.pbz-otp-page {
+  min-height: 100vh;
+
+  background: #f7f4ee;
+
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+
+  color: #20252b;
+}
+
+.pbz-otp-layout {
+  min-height: 100vh;
+
+  display: flex;
+}
+
+/* =========================================================
+   LEFT BRAND
+========================================================= */
+
+.pbz-otp-brand {
+  position: relative;
+
+  width: 57%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: linear-gradient(145deg, #161d24 0%, #202a33 55%, #151b21 100%);
+}
+
+.pbz-otp-pattern {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.5;
+
+  background-image: linear-gradient(
+    30deg,
+    transparent 48%,
+    rgba(199, 154, 69, 0.08) 49%,
+    rgba(199, 154, 69, 0.08) 50%,
+    transparent 51%
+  );
+
+  background-size: 80px 80px;
+
+  pointer-events: none;
+}
+
+.pbz-otp-brand::before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -320px;
+  top: -320px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(199, 154, 69, 0.15);
+}
+
+.pbz-otp-brand::after {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  left: -300px;
+  bottom: -270px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(199, 154, 69, 0.1);
+}
+
+.pbz-otp-brand-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 55px 70px 35px;
+}
+
+/* =========================================================
+   BRAND TOP
+========================================================= */
+
+.pbz-otp-brand-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.pbz-otp-brand-logo {
+  width: 245px;
+  height: auto;
+}
+
+.pbz-otp-badge {
+  padding: 8px 14px;
+
+  border: 1px solid rgba(199, 154, 69, 0.3);
+
+  border-radius: 30px;
+
+  color: #e3c47a;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   BRAND MESSAGE
+========================================================= */
+
+.pbz-otp-brand-message {
+  max-width: 620px;
+
+  margin-top: auto;
+  margin-bottom: auto;
+
+  padding: 55px 0;
+}
+
+.pbz-otp-overline {
+  display: inline-block;
+
+  margin-bottom: 17px;
+
+  color: #c79a45;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.pbz-otp-brand-message h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(42px, 4.2vw, 61px);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -1.8px;
+}
+
+.pbz-otp-brand-message h1 span {
+  color: #d4ad5f;
+}
+
+.pbz-otp-brand-message > p {
+  max-width: 550px;
+
+  margin: 23px 0 30px;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   SECURITY LIST
+========================================================= */
+
+.pbz-otp-security-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.pbz-otp-security-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  max-width: 450px;
+
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.pbz-otp-security-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(199, 154, 69, 0.12);
+
+  color: #d4ad5f;
+
+  font-size: 15px;
+}
+
+.pbz-otp-security-item strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.pbz-otp-security-item span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.43);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   BRAND FOOTER
+========================================================= */
+
+.pbz-otp-brand-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.pbz-otp-brand-footer strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.pbz-otp-brand-footer > div:first-child span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+}
+
+.pbz-otp-clock {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.pbz-otp-clock > span {
+  color: #c79a45;
+
+  font-size: 17px;
+}
+
+.pbz-otp-clock strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.pbz-otp-clock small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.pbz-otp-side {
+  width: 43%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: #f7f4ee;
+}
+
+/* =========================================================
+   OTP CARD
+========================================================= */
+
+.pbz-otp-card {
+  width: 100%;
+  max-width: 470px;
+
+  padding: 35px 42px 27px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e1d5;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 22px 60px rgba(24, 33, 43, 0.1),
+    0 5px 18px rgba(24, 33, 43, 0.04);
+}
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.pbz-otp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 26px;
+}
+
+.pbz-otp-card-label {
+  color: #a97832;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.pbz-otp-secure {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: #4f765d;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.pbz-otp-secure .bi {
+  font-size: 13px;
+}
+
+/* =========================================================
+   MAIN ICON
+========================================================= */
+
+.pbz-otp-main-icon {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 19px;
+}
+
+.pbz-otp-icon-circle {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #a97832;
+
+  background: #f4eddf;
+
+  border: 7px solid #faf7f0;
+
+  font-size: 23px;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.pbz-otp-heading {
+  text-align: center;
+
+  margin-bottom: 24px;
+}
+
+.pbz-otp-heading h2 {
+  margin: 0;
+
+  color: #18212b;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+}
+
+.pbz-otp-heading p {
+  max-width: 350px;
+
+  margin: 8px auto 0;
+
+  color: #7c858e;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.pbz-otp-alert {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  padding: 12px;
+
+  border-radius: 9px;
+
+  background: #fff5f4;
+
+  border: 1px solid #f2d5d1;
+}
+
+.pbz-otp-alert > span {
+  color: #c4473d;
+
+  font-size: 15px;
+}
+
+.pbz-otp-alert strong {
+  display: block;
+
+  color: #87352e;
+
+  font-size: 11px;
+}
+
+.pbz-otp-alert div span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #a54841;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   OTP INPUT
+========================================================= */
+
+.pbz-otp-input-section {
+  text-align: center;
+
+  margin-top: 5px;
+}
+
+.pbz-otp-input-section label {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #303840;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.pbz-otp-input-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pbz-otp-input-wrapper input {
+  width: 42px !important;
+  height: 48px !important;
+
+  margin: 0 4px !important;
+
+  border: 1px solid #ded8ce !important;
+
+  border-radius: 8px !important;
+
+  color: #18212b !important;
+
+  background: #ffffff !important;
+
+  font-size: 19px !important;
+
+  font-weight: 700 !important;
+
+  outline: none !important;
+
+  transition: all 0.2s ease;
+}
+
+.pbz-otp-input-wrapper input:focus {
+  border-color: #c79a45 !important;
+
+  box-shadow: 0 0 0 3px rgba(199, 154, 69, 0.1) !important;
+}
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.pbz-otp-timer-section {
+  min-height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  color: #858d94;
+
+  font-size: 10px;
+}
+
+.pbz-otp-timer-section > .bi {
+  color: #a97832;
+
+  font-size: 13px;
+}
+
+.pbz-otp-timer-section strong {
+  color: #a97832;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.pbz-otp-info {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-top: 20px;
+
+  padding: 11px 12px;
+
+  border-radius: 8px;
+
+  background: #faf8f3;
+
+  border: 1px solid #eee7da;
+}
+
+.pbz-otp-info > span {
+  color: #a97832;
+
+  font-size: 13px;
+}
+
+.pbz-otp-info p {
+  margin: 0;
+
+  color: #858d94;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LOGIN AGAIN
+========================================================= */
+
+.pbz-otp-login-again {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 20px;
+
+  font-size: 10px;
+}
+
+.pbz-otp-login-again > span {
+  color: #858d94;
+}
+
+.pbz-otp-login-again a {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: #a97832;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.pbz-otp-login-again a:hover {
+  color: #18212b;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pbz-otp-card-footer {
+  margin-top: 23px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #eee9e1;
+
+  text-align: center;
+
+  color: #a0a5aa;
+
+  font-size: 8px;
+}
+
+.pbz-otp-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-bottom: 6px;
+
+  color: #737d86;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+.pbz-otp-footer-links i {
+  color: #c79a45;
+
+  font-style: normal;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+  .pbz-otp-brand {
+    width: 54%;
+  }
+
+  .pbz-otp-side {
+    width: 46%;
+
+    padding: 30px;
+  }
+
+  .pbz-otp-brand-content {
+    padding: 40px;
+  }
+
+  .pbz-otp-card {
+    padding: 30px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  .pbz-otp-layout {
+    display: block;
+  }
+
+  .pbz-otp-brand {
+    display: none;
+  }
+
+  .pbz-otp-side {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 15px;
+
+    background: linear-gradient(145deg, #eee7da, #f7f4ee 50%, #ffffff);
+  }
+
+  .pbz-otp-card {
+    max-width: 480px;
+
+    padding: 30px 25px 24px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .pbz-otp-side {
+    padding: 10px;
+  }
+
+  .pbz-otp-card {
+    padding: 25px 17px 21px;
+
+    border-radius: 15px;
+  }
+
+  .pbz-otp-heading h2 {
+    font-size: 26px;
+  }
+
+  .pbz-otp-input-wrapper input {
+    width: 39px !important;
+    height: 46px !important;
+
+    margin: 0 3px !important;
+  }
+}

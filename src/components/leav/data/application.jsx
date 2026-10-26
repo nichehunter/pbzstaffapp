@@ -40,7 +40,7 @@ export const LeaveApplication = (props) => {
             dataId,
             "",
             value,
-            "-year"
+            "-year",
           )
           .then((resp) => {
             setData(resp.data.results);
@@ -51,7 +51,7 @@ export const LeaveApplication = (props) => {
               <Message showIcon type={"error"} closable>
                 {error.message}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           })
           .finally(() => {
@@ -65,21 +65,14 @@ export const LeaveApplication = (props) => {
     if (dataId) {
       setTimeout(() => {
         hrmsCRUD
-          .loadLeaveApplication(
-            2,
-            0,
-            dataId,
-            true,
-            value,
-            "-year"
-          )
+          .loadLeaveApplication(2, 0, dataId, true, value, "-year")
           .then((resp) => {
             setCountLeave(resp.data.count);
           })
-          .catch((error) => {})
+          .catch((error) => {});
       }, 500);
     }
-  },[dataId, index])
+  }, [dataId, index]);
 
   const defaultColumns = [
     {
@@ -222,7 +215,7 @@ export const LeaveApplication = (props) => {
 
   const button = roles.includes("can_add_leave") ? (
     <>
-      <button className="btn btn-info" onClick={() => setOpen(true)}>
+      <button className="pbz-app-btn pbz-btn-add" onClick={() => setOpen(true)}>
         <span className="bi bi-plus-circle"></span> &nbsp; New Application
       </button>
     </>

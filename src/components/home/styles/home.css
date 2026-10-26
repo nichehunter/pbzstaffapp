@@ -1,0 +1,1035 @@
+/* =========================================================
+   PBZ STAFF DASHBOARD
+   ========================================================= */
+
+.pbz-dashboard {
+  width: 100%;
+  color: var(--pbz-entry-text);
+}
+
+/* =========================================================
+   WELCOME BAR
+   ========================================================= */
+
+.pbz-dashboard-welcome {
+  min-height: 145px;
+  padding: 24px 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    105deg,
+    var(--pbz-entry-charcoal) 0%,
+    #222d38 65%,
+    var(--pbz-entry-charcoal) 100%
+  );
+
+  box-shadow: 0 8px 24px rgba(24, 33, 43, 0.1);
+}
+
+.pbz-dashboard-welcome::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: 90px;
+  top: -120px;
+
+  border: 1px solid rgba(199, 154, 69, 0.16);
+  border-radius: 50%;
+}
+
+.pbz-dashboard-welcome::before {
+  content: "";
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  right: -50px;
+  bottom: -100px;
+
+  border: 1px solid rgba(199, 154, 69, 0.13);
+  border-radius: 50%;
+}
+
+.pbz-dashboard-welcome-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.pbz-dashboard-welcome-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(199, 154, 69, 0.35);
+  border-radius: 12px;
+
+  color: var(--pbz-entry-gold);
+
+  background: rgba(199, 154, 69, 0.1);
+
+  font-size: 22px;
+}
+
+.pbz-dashboard-eyebrow {
+  color: var(--pbz-entry-gold);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.pbz-dashboard-welcome h2 {
+  margin: 4px 0 5px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.pbz-dashboard-welcome p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.pbz-dashboard-date {
+  min-width: 145px;
+
+  padding-left: 20px;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pbz-dashboard-date span {
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.pbz-dashboard-date strong {
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+.pbz-dashboard-date small {
+  margin-top: 3px;
+
+  color: var(--pbz-entry-gold);
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   ATTENTION BAR
+   ========================================================= */
+
+.pbz-dashboard-attention {
+  margin-top: 14px;
+  padding: 12px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border: 1px solid #e9e1d1;
+  border-radius: 9px;
+
+  background: #fcfaf6;
+}
+
+.pbz-dashboard-attention-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  color: var(--pbz-entry-gold-dark);
+  background: var(--pbz-entry-soft);
+
+  font-size: 13px;
+}
+
+.pbz-dashboard-attention-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  flex: 1;
+}
+
+.pbz-dashboard-attention-content strong {
+  color: #353d45;
+  font-size: 10px;
+}
+
+.pbz-dashboard-attention-content span {
+  color: #858b91;
+  font-size: 9px;
+}
+
+.pbz-dashboard-attention-action {
+  padding: 7px 11px;
+
+  border: 0;
+
+  color: var(--pbz-entry-gold-dark);
+  background: transparent;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.pbz-dashboard-attention-action i {
+  margin-left: 5px;
+}
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.pbz-dashboard-section-heading {
+  margin: 22px 2px 11px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.pbz-dashboard-section-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbz-dashboard-section-heading span {
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.pbz-dashboard-section-heading h3 {
+  margin: 0;
+
+  color: var(--pbz-entry-text);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pbz-dashboard-section-heading small {
+  color: #9a9fa5;
+  font-size: 8px;
+}
+
+/* =========================================================
+   SUMMARY CARD
+   ========================================================= */
+
+.pbz-dashboard-card {
+  min-height: 145px;
+
+  padding: 17px;
+
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 14px rgba(24, 33, 43, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pbz-dashboard-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 22px rgba(24, 33, 43, 0.07);
+}
+
+.pbz-dashboard-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pbz-dashboard-card-label {
+  color: #8a9096;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.pbz-dashboard-card h4 {
+  margin: 7px 0 0;
+
+  color: var(--pbz-entry-text);
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.pbz-dashboard-card h4 small {
+  color: #8b9299;
+
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.pbz-dashboard-card-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  font-size: 17px;
+}
+
+.pbz-icon-gold {
+  color: var(--pbz-entry-gold-dark);
+  background: #f4ecdc;
+}
+
+.pbz-icon-dark {
+  color: var(--pbz-entry-charcoal);
+  background: #e9edf0;
+}
+
+.pbz-icon-soft {
+  color: #6d786f;
+  background: #edf1ed;
+}
+
+.pbz-dashboard-progress {
+  width: 100%;
+  height: 4px;
+
+  margin-top: 13px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #eeeae3;
+}
+
+.pbz-dashboard-progress > div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--pbz-entry-gold);
+}
+
+.pbz-progress-dark > div {
+  background: var(--pbz-entry-charcoal);
+}
+
+.pbz-progress-soft > div {
+  background: #7a8b7e;
+}
+
+.pbz-progress-leave > div {
+  background: var(--pbz-entry-gold);
+}
+
+.pbz-dashboard-card-footer {
+  margin-top: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pbz-dashboard-card-footer span {
+  color: #9a9fa5;
+  font-size: 8px;
+}
+
+.pbz-dashboard-card-footer strong {
+  color: #687079;
+  font-size: 8px;
+}
+
+.pbz-dashboard-card-footer strong {
+  color: var(--pbz-entry-gold-dark);
+}
+
+.pbz-dashboard-card-simple {
+  margin-top: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pbz-dashboard-card-simple span {
+  color: #969ca2;
+  font-size: 8px;
+}
+
+.pbz-dashboard-card-simple strong {
+  color: #64706a;
+  font-size: 8px;
+}
+
+.pbz-dashboard-card-simple i {
+  margin-right: 3px;
+  color: var(--pbz-entry-success);
+}
+
+.pbz-salary-value {
+  font-size: 17px !important;
+  white-space: nowrap;
+}
+
+.pbz-dashboard-loader {
+  min-height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.pbz-dashboard-panel {
+  padding: 18px;
+
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 14px rgba(24, 33, 43, 0.025);
+}
+
+.pbz-dashboard-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.pbz-dashboard-panel-header > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbz-dashboard-panel-header span {
+  color: var(--pbz-entry-gold-dark);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.pbz-dashboard-panel-header h3 {
+  margin: 0;
+
+  color: var(--pbz-entry-text);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pbz-dashboard-link {
+  padding: 0;
+
+  border: 0;
+
+  color: var(--pbz-entry-gold-dark);
+  background: transparent;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.pbz-dashboard-link i {
+  margin-left: 5px;
+}
+
+/* =========================================================
+   PROGRESS LIST
+   ========================================================= */
+
+.pbz-progress-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pbz-progress-item {
+  min-height: 72px;
+
+  padding: 13px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border-bottom: 1px solid #f0ece5;
+}
+
+.pbz-progress-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pbz-progress-item:first-child {
+  padding-top: 0;
+}
+
+.pbz-progress-item-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+}
+
+.pbz-progress-item-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.pbz-progress-item-title {
+  margin-bottom: 6px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pbz-progress-item-title strong {
+  color: #39424b;
+  font-size: 9px;
+}
+
+.pbz-progress-item-title span {
+  color: #777f87;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.pbz-progress-item-content .pbz-dashboard-progress {
+  margin-top: 0;
+}
+
+.pbz-progress-item-content small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #a0a5aa;
+  font-size: 7px;
+}
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.pbz-status-badge {
+  flex: 0 0 auto;
+
+  padding: 4px 7px;
+
+  border-radius: 20px;
+
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.pbz-status-review {
+  color: #6d5a35;
+  background: #f5eddf;
+}
+
+.pbz-status-complete {
+  color: #607064;
+  background: #edf1ed;
+}
+
+.pbz-status-neutral {
+  color: #70777e;
+  background: #f1f2f2;
+}
+
+/* =========================================================
+   PAYROLL
+   ========================================================= */
+
+.pbz-panel-header-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  color: var(--pbz-entry-gold-dark);
+  background: #f4ecdc;
+}
+
+.pbz-payroll-month {
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 9px;
+
+  background: var(--pbz-entry-charcoal);
+}
+
+.pbz-payroll-month > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pbz-payroll-month span {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.pbz-payroll-month strong {
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.pbz-payroll-check {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--pbz-entry-gold);
+  background: rgba(199, 154, 69, 0.13);
+}
+
+.pbz-payroll-details {
+  padding: 14px 2px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pbz-payroll-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbz-payroll-details span {
+  color: #9a9fa5;
+  font-size: 7px;
+}
+
+.pbz-payroll-details strong {
+  color: #4d555d;
+  font-size: 8px;
+}
+
+.pbz-primary-outline-button {
+  width: 100%;
+  height: 35px;
+
+  border: 1px solid var(--pbz-entry-gold);
+  border-radius: 7px;
+
+  color: var(--pbz-entry-gold-dark);
+  background: transparent;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.pbz-primary-outline-button:hover {
+  color: #ffffff;
+  background: var(--pbz-entry-gold-dark);
+}
+
+.pbz-primary-outline-button i {
+  margin-right: 6px;
+}
+
+/* =========================================================
+   ACTIVITY
+   ========================================================= */
+
+.pbz-activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pbz-activity-item {
+  min-height: 55px;
+
+  padding: 8px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid #f0ece5;
+}
+
+.pbz-activity-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pbz-activity-item:first-child {
+  padding-top: 0;
+}
+
+.pbz-activity-icon {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+}
+
+.pbz-activity-success {
+  color: #627a69;
+  background: #edf2ee;
+}
+
+.pbz-activity-gold {
+  color: var(--pbz-entry-gold-dark);
+  background: #f5eddf;
+}
+
+.pbz-activity-dark {
+  color: var(--pbz-entry-charcoal);
+  background: #e9edf0;
+}
+
+.pbz-activity-muted {
+  color: #747b82;
+  background: #f0f1f1;
+}
+
+.pbz-activity-content {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pbz-activity-content strong {
+  color: #3f474f;
+  font-size: 9px;
+}
+
+.pbz-activity-content span {
+  color: #999fa5;
+  font-size: 8px;
+}
+
+.pbz-activity-item > small {
+  color: #a0a5aa;
+  font-size: 7px;
+}
+
+/* =========================================================
+   MASURUFU
+   ========================================================= */
+
+.pbz-expense-summary {
+  padding: 14px;
+
+  border-radius: 9px;
+
+  background: #faf8f4;
+}
+
+.pbz-expense-summary > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pbz-expense-summary span {
+  color: #999fa5;
+  font-size: 8px;
+}
+
+.pbz-expense-summary strong {
+  color: var(--pbz-entry-text);
+  font-size: 18px;
+}
+
+.pbz-expense-pending {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--pbz-entry-gold-dark) !important;
+}
+
+.pbz-expense-pending i {
+  font-size: 11px;
+}
+
+.pbz-quick-actions {
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pbz-quick-actions button {
+  min-height: 52px;
+
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 8px;
+
+  color: #626a72;
+
+  background: #ffffff;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.pbz-quick-actions button:hover {
+  color: var(--pbz-entry-gold-dark);
+  border-color: #d7c39d;
+}
+
+.pbz-quick-actions i {
+  font-size: 14px;
+}
+
+/* =========================================================
+   SECURITY MESSAGE
+   ========================================================= */
+
+.pbz-dashboard-support {
+  margin-top: 14px;
+  padding: 11px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #e9e6df;
+  border-radius: 8px;
+
+  background: #faf9f6;
+}
+
+.pbz-dashboard-support-icon {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  color: var(--pbz-entry-gold-dark);
+  background: #f2eadb;
+}
+
+.pbz-dashboard-support div:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pbz-dashboard-support strong {
+  color: #555d65;
+  font-size: 8px;
+}
+
+.pbz-dashboard-support span {
+  color: #9b9fa4;
+  font-size: 7px;
+}
+
+.pbz-dashboard-support > i {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .pbz-dashboard-welcome {
+    align-items: flex-start;
+  }
+
+  .pbz-dashboard-date {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .pbz-dashboard-welcome {
+    padding: 18px;
+  }
+
+  .pbz-dashboard-welcome-icon {
+    display: none;
+  }
+
+  .pbz-dashboard-welcome h2 {
+    font-size: 18px;
+  }
+
+  .pbz-dashboard-welcome p {
+    font-size: 9px;
+  }
+
+  .pbz-dashboard-attention {
+    align-items: flex-start;
+  }
+
+  .pbz-dashboard-attention-action {
+    display: none;
+  }
+
+  .pbz-dashboard-section-heading {
+    margin-top: 18px;
+  }
+
+  .pbz-dashboard-card {
+    min-height: 135px;
+  }
+
+  .pbz-dashboard-panel {
+    padding: 14px;
+  }
+
+  .pbz-progress-item {
+    align-items: flex-start;
+  }
+
+  .pbz-status-badge {
+    display: none;
+  }
+
+  .pbz-activity-item > small {
+    display: none;
+  }
+
+  .pbz-dashboard-support span {
+    display: none;
+  }
+}

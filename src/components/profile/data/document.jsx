@@ -25,14 +25,7 @@ export const DocumentInfo = (props) => {
       setLoading(true);
       setTimeout(() => {
         hrmsCRUD
-          .loadStaffDocument(
-            postsPerPage,
-            nextPage,
-            dataId,
-            "",
-            value,
-            "-id"
-          )
+          .loadStaffDocument(postsPerPage, nextPage, dataId, "", value, "-id")
           .then((resp) => {
             setData(resp.data.results);
             setCount(resp.data.count);
@@ -42,7 +35,7 @@ export const DocumentInfo = (props) => {
               <Message showIcon type={"error"} closable>
                 {error.message}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           })
           .finally(() => {
@@ -101,12 +94,8 @@ export const DocumentInfo = (props) => {
 
   const button = (
     <>
-      <button
-        className="btn btn-soft-dark btn-border"
-        onClick={() => setOpen(true)}
-      >
-        <span className="bi bi-plus-circle la-lg"></span> &nbsp; New
-        Document
+      <button className="pbz-app-btn pbz-btn-add" onClick={() => setOpen(true)}>
+        <span className="bi bi-plus-circle la-lg"></span> &nbsp; New Document
       </button>
     </>
   );

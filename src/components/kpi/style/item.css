@@ -1,0 +1,832 @@
+/* =========================================================
+   KPI ENTRY MODAL
+========================================================= */
+
+.pbz-kpi-entry-modal .rs-modal-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.pbz-kpi-entry-modal .rs-modal-header {
+  flex-shrink: 0;
+  padding: 16px 22px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.pbz-kpi-entry-modal .rs-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 22px 28px;
+  background: #f7f9fc;
+}
+
+.pbz-kpi-entry-modal .rs-modal-footer {
+  flex-shrink: 0;
+  padding: 11px 22px;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.pbz-kpi-modal-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pbz-kpi-modal-title-content {
+  min-width: 0;
+}
+
+.pbz-kpi-modal-eyebrow {
+  margin-bottom: 3px;
+  color: #0077b6;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pbz-kpi-modal-title h4 {
+  margin: 0;
+  color: #0b1736;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.pbz-kpi-modal-title p {
+  margin: 3px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   KPI MODE SWITCH
+========================================================= */
+
+.pbz-kpi-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+
+  height: 34px;
+  flex-shrink: 0;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.pbz-kpi-mode-btn {
+  width: 28px;
+  height: 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
+}
+
+.pbz-kpi-mode-btn:hover {
+  color: #0077b6;
+  background: #ffffff;
+}
+
+.pbz-kpi-mode-btn.active {
+  color: #0077b6;
+  background: #ffffff;
+
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(0, 119, 182, 0.05);
+}
+
+.pbz-kpi-mode-btn:active {
+  transform: scale(0.94);
+}
+
+.pbz-kpi-mode-btn:focus-visible {
+  outline: 2px solid rgba(0, 119, 182, 0.25);
+  outline-offset: 1px;
+}
+
+.pbz-kpi-mode-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   KPI SELECT PERFORMANCE BUTTON
+========================================================= */
+.pbz-kpi-select-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  height: 34px;
+  padding: 0 13px;
+
+  border: 1px solid #0077b6;
+  border-radius: 7px;
+
+  background: #0077b6;
+  color: #ffffff !important;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
+}
+
+.pbz-kpi-select-btn span,
+.pbz-kpi-select-btn svg {
+  color: #ffffff !important;
+}
+
+.pbz-kpi-select-btn svg {
+  font-size: 13px;
+  fill: currentColor;
+}
+
+.pbz-kpi-select-btn:hover {
+  background: #006a9f;
+  border-color: #006a9f;
+  color: #ffffff !important;
+
+  box-shadow: 0 3px 8px rgba(0, 119, 182, 0.18);
+}
+
+.pbz-kpi-select-btn:hover span,
+.pbz-kpi-select-btn:hover svg {
+  color: #ffffff !important;
+}
+
+.pbz-kpi-select-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.pbz-kpi-select-btn:focus-visible {
+  outline: 2px solid rgba(0, 119, 182, 0.25);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   SECTION CARD
+========================================================= */
+
+.pbz-kpi-section-card {
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.05),
+    0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.pbz-kpi-section-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 15px;
+  background: #0077b6;
+  color: #ffffff;
+}
+
+.pbz-kpi-section-table-header-left {
+  min-width: 0;
+  color: #ffffff;
+}
+
+.pbz-kpi-section-table-label {
+  display: block;
+  margin-bottom: 2px;
+  color: #0077b6;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pbz-kpi-section-table-header h5 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.pbz-kpi-section-table-description {
+  margin: 3px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   ADD PERFORMANCE BUTTON
+========================================================= */
+
+.pbz-kpi-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #b6dbea;
+  border-radius: 5px;
+  background: #f0f9fc;
+  color: #0077b6;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pbz-kpi-add-btn:hover {
+  border-color: #0077b6;
+  background: #e0f2f8;
+  color: #005f91;
+}
+
+.pbz-kpi-add-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.pbz-kpi-entry-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.pbz-kpi-entry-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.pbz-kpi-entry-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.pbz-kpi-entry-table-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   KPI TABLE
+========================================================= */
+
+.pbz-kpi-entry-table {
+  width: 100%;
+  min-width: 1080px;
+  margin: 0;
+  table-layout: fixed;
+
+  border-collapse: collapse;
+  border: 1px solid #dbe3ec;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pbz-kpi-entry-table thead th {
+  padding: 8px 9px;
+
+  background: #1fc9fa;
+  border-bottom: 2px solid #fef800;
+  color: #212121;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.pbz-kpi-entry-table tbody td {
+  padding: 8px 9px;
+
+  border: 1px solid #e8edf3;
+
+  color: #475569;
+
+  font-size: 11px;
+  line-height: 1.4;
+
+  vertical-align: middle;
+}
+
+/* =========================================================
+   KEY RESULT - ROW SPAN
+========================================================= */
+
+.pbz-kpi-entry-table tbody td.pbz-kpi-key-result-cell {
+  vertical-align: middle;
+  background: #ffffff;
+
+  border: 1px solid #e8edf3;
+}
+
+/* =========================================================
+   ROW HOVER
+========================================================= */
+
+.pbz-kpi-entry-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.pbz-kpi-entry-table tbody tr:hover .pbz-kpi-key-result-cell {
+  background: #fafcff;
+}
+
+.pbz-kpi-section-total-row {
+  border-top: 2px solid #fef800;
+  background: #0077b6;
+}
+
+.pbz-kpi-section-total-row td {
+  border-top: 2px solid #fef800;
+  background: #0077b6;
+  font-weight: 700;
+}
+
+.pbz-kpi-section-total-label {
+  text-align: center;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  font-size: 10px !important;
+  letter-spacing: 0.4px;
+}
+
+.pbz-kpi-section-total-weight {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.pbz-kpi-section-total-rating {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* =========================================================
+   TABLE COLUMN SIZES
+========================================================= */
+
+.pbz-kpi-entry-table th:nth-child(1),
+.pbz-kpi-entry-table td:nth-child(1) {
+  width: 17%;
+}
+
+.pbz-kpi-entry-table th:nth-child(2),
+.pbz-kpi-entry-table td:nth-child(2) {
+  width: 31%;
+}
+
+.pbz-kpi-entry-table th:nth-child(3),
+.pbz-kpi-entry-table td:nth-child(3) {
+  width: 9%;
+}
+
+.pbz-kpi-entry-table th:nth-child(4),
+.pbz-kpi-entry-table td:nth-child(4) {
+  width: 9%;
+}
+
+.pbz-kpi-entry-table th:nth-child(5),
+.pbz-kpi-entry-table td:nth-child(5) {
+  width: 8%;
+}
+
+.pbz-kpi-entry-table th:nth-child(6),
+.pbz-kpi-entry-table td:nth-child(6) {
+  width: 8%;
+}
+
+.pbz-kpi-entry-table th:nth-child(7),
+.pbz-kpi-entry-table td:nth-child(7) {
+  width: 10%;
+}
+
+.pbz-kpi-entry-table th:nth-child(8),
+.pbz-kpi-entry-table td:nth-child(8) {
+  width: 8%;
+}
+
+/* =========================================================
+   RESULT / PERFORMANCE TEXT
+========================================================= */
+
+.pbz-kpi-result-name {
+  display: block;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pbz-kpi-performance-name {
+  display: block;
+  color: #475569;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.pbz-kpi-placeholder {
+  color: #94a3b8;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.pbz-kpi-muted-value {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.pbz-kpi-weight {
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PERFORMANCE SELECT
+========================================================= */
+
+.pbz-kpi-performance-select {
+  width: 100%;
+}
+
+.pbz-kpi-performance-select .rs-picker-toggle {
+  min-height: 32px;
+  padding: 6px 9px;
+  border-color: #d8e1ea;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.pbz-kpi-performance-select .rs-picker-toggle:hover {
+  border-color: #0077b6;
+}
+
+.pbz-kpi-performance-select .rs-picker-toggle:focus,
+.pbz-kpi-performance-select.rs-picker-focused .rs-picker-toggle {
+  border-color: #0077b6;
+  box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.08);
+}
+
+/* =========================================================
+   VALUE INPUTS
+========================================================= */
+
+.pbz-kpi-entry-table .form-control {
+  height: 31px;
+  padding: 5px 8px;
+  border-color: #d8e1ea;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #334155;
+  box-shadow: none;
+}
+
+.pbz-kpi-entry-table .form-control:focus {
+  border-color: #0077b6;
+  box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.08);
+}
+
+.pbz-kpi-entry-table .form-control:disabled,
+.pbz-kpi-entry-table .form-control[readonly] {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.pbz-kpi-number-input {
+  width: 100%;
+  min-width: 70px;
+  height: 30px;
+  padding: 4px 7px;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 5px;
+
+  background: #fff;
+  color: #334155;
+
+  font-size: 11px;
+  text-align: center;
+}
+
+.pbz-kpi-number-input:focus {
+  border-color: #48cae4;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(72, 202, 228, 0.12);
+}
+
+.pbz-kpi-number-input::placeholder {
+  text-align: center;
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.pbz-kpi-weighted-rating {
+  font-weight: 700;
+  color: #0077b6;
+}
+
+/* =========================================================
+   ACTION COLUMN
+========================================================= */
+
+.pbz-kpi-action-cell {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pbz-kpi-remove-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fecaca;
+  border-radius: 5px;
+  background: #fff5f5;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pbz-kpi-remove-btn:hover {
+  border-color: #ef4444;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.pbz-kpi-remove-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* =========================================================
+   EMPTY SECTION
+========================================================= */
+
+.pbz-kpi-empty-section {
+  display: flex;
+  min-height: 125px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px;
+  text-align: center;
+}
+
+.pbz-kpi-empty-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #94a3b8;
+  border-radius: 50%;
+  color: #0077b6;
+  font-size: 17px;
+}
+
+.pbz-kpi-empty-section strong {
+  color: #334155;
+  font-size: 12px;
+}
+
+.pbz-kpi-empty-section span {
+  margin-bottom: 5px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* =========================================================
+   READ ONLY NOTICE
+========================================================= */
+
+.pbz-kpi-readonly-notice {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  padding: 9px 11px;
+  border: 1px solid #dbe5ee;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.pbz-kpi-readonly-notice strong {
+  color: #475569;
+  font-weight: 600;
+}
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.pbz-kpi-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.pbz-kpi-modal-footer .rs-btn {
+  min-width: 80px;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.pbz-kpi-entry-loading {
+  display: flex;
+  min-height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .pbz-kpi-modal-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pbz-kpi-mode-switch,
+  .pbz-kpi-readonly-label {
+    align-self: flex-start;
+  }
+
+  .pbz-kpi-section-table-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pbz-kpi-add-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pbz-kpi-entry-modal .rs-modal-content {
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .pbz-kpi-entry-modal .rs-modal-header {
+    padding: 14px 15px;
+  }
+
+  .pbz-kpi-entry-modal .rs-modal-body {
+    padding: 14px;
+  }
+
+  .pbz-kpi-entry-modal .rs-modal-footer {
+    padding: 10px 15px;
+  }
+
+  .pbz-kpi-modal-title h4 {
+    font-size: 17px;
+  }
+
+  .pbz-kpi-section-table-header {
+    padding: 11px 13px;
+  }
+
+  .pbz-kpi-entry-table {
+    min-width: 1080px;
+  }
+
+  .pbz-kpi-entry-table thead th {
+    font-size: 9px;
+  }
+
+  .pbz-kpi-entry-table tbody td {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .pbz-kpi-mode-switch {
+    width: 100%;
+  }
+
+  .pbz-kpi-mode-btn {
+    flex: 1;
+  }
+
+  .pbz-kpi-readonly-label {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pbz-kpi-modal-footer {
+    width: 100%;
+  }
+
+  .pbz-kpi-modal-footer .rs-btn {
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   PERFORMANCE BULLET TEXT
+========================================================= */
+
+.pbz-kpi-performance-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #475569;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.pbz-kpi-performance-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.pbz-kpi-bullet {
+  flex: 0 0 auto;
+
+  width: 5px;
+  height: 5px;
+
+  margin-top: 5px;
+
+  border-radius: 50%;
+  background: #0077b6;
+}
+
+.pbz-kpi-performance-bullet-text {
+  flex: 1;
+  min-width: 0;
+}

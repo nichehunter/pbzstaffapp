@@ -1,0 +1,477 @@
+.pbz-staff-info {
+  width: 100%;
+  color: var(--pbz-entry-text);
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.pbz-staff-loading {
+  min-height: 420px;
+  position: relative;
+}
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.pbz-staff-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 24px;
+  margin-bottom: 16px;
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 14px;
+  background: var(--pbz-entry-white);
+}
+
+.pbz-staff-profile-identity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pbz-staff-profile-avatar {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--pbz-entry-charcoal),
+    var(--pbz-entry-charcoal-light)
+  );
+  font-size: 23px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(24, 33, 43, 0.14);
+}
+
+.pbz-staff-profile-name {
+  min-width: 0;
+}
+
+.pbz-staff-profile-name > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--pbz-entry-gold-dark);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.pbz-staff-profile-name h2 {
+  margin: 0;
+  color: var(--pbz-entry-charcoal);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.pbz-staff-profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.pbz-staff-profile-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pbz-entry-muted);
+  font-size: 10px;
+}
+
+.pbz-staff-profile-meta i {
+  color: var(--pbz-entry-gold);
+  font-size: 12px;
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.pbz-staff-profile-actions {
+  flex: 0 0 auto;
+}
+
+.pbz-staff-edit-button,
+.pbz-staff-cancel-button,
+.pbz-staff-save-button {
+  height: 38px;
+  padding: 0 15px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pbz-staff-edit-button {
+  border: 1px solid var(--pbz-entry-border);
+  color: var(--pbz-entry-charcoal);
+  background: #fff;
+}
+
+.pbz-staff-edit-button:hover {
+  color: var(--pbz-entry-gold-dark);
+  border-color: var(--pbz-entry-gold);
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-staff-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pbz-staff-cancel-button {
+  border: 1px solid #ead6d6;
+  color: var(--pbz-entry-danger);
+  background: #fff;
+}
+
+.pbz-staff-cancel-button:hover {
+  background: #fcf4f4;
+}
+
+.pbz-staff-save-button {
+  border: 1px solid var(--pbz-entry-charcoal);
+  color: #fff;
+  background: var(--pbz-entry-charcoal);
+}
+
+.pbz-staff-save-button:hover {
+  background: var(--pbz-entry-charcoal-light);
+}
+
+.pbz-staff-save-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   STATUS STRIP
+========================================= */
+
+.pbz-staff-status-strip {
+  min-height: 70px;
+  padding: 13px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 12px;
+  background: var(--pbz-entry-bg);
+}
+
+.pbz-staff-status {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pbz-staff-status-dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  background: var(--pbz-entry-success);
+  box-shadow: 0 0 0 5px rgba(113, 139, 120, 0.12);
+}
+
+.pbz-staff-status div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pbz-staff-status strong {
+  color: var(--pbz-entry-charcoal);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.pbz-staff-status span {
+  color: var(--pbz-entry-muted);
+  font-size: 9px;
+}
+
+.pbz-staff-status-item {
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbz-staff-status-item span {
+  color: var(--pbz-entry-muted);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.pbz-staff-status-item strong {
+  color: var(--pbz-entry-charcoal);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.pbz-staff-section {
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid var(--pbz-entry-border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.pbz-staff-section-last {
+  margin-bottom: 0;
+}
+
+.pbz-staff-section-header {
+  margin-bottom: 17px;
+}
+
+.pbz-staff-section-header > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pbz-staff-section-header > div > span {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--pbz-entry-gold-dark);
+  background: var(--pbz-entry-soft);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.pbz-staff-section-header h3 {
+  margin: 0;
+  color: var(--pbz-entry-charcoal);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pbz-staff-section-header p {
+  margin: 3px 0 0;
+  color: var(--pbz-entry-muted);
+  font-size: 9px;
+}
+
+/* =========================================
+   INFORMATION GRID
+========================================= */
+
+.pbz-staff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pbz-staff-info-item {
+  min-width: 0;
+  min-height: 78px;
+  padding: 13px 14px;
+  border: 1px solid #eee9e0;
+  border-radius: 9px;
+  background: #fffdf9;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.pbz-staff-info-item:hover {
+  border-color: #dfd2bb;
+  background: #fffdf8;
+}
+
+.pbz-staff-info-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  color: var(--pbz-entry-muted);
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pbz-staff-info-icon {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--pbz-entry-gold-dark);
+  background: var(--pbz-entry-soft);
+}
+
+.pbz-staff-info-icon i {
+  font-size: 10px;
+}
+
+.pbz-staff-info-value {
+  min-width: 0;
+  color: var(--pbz-entry-text);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* =========================================
+   EDIT FIELDS
+========================================= */
+
+.pbz-staff-inline-fields {
+  display: grid;
+  grid-template-columns: 95px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.pbz-staff-info-item .rs-picker,
+.pbz-staff-info-item .rs-input-group,
+.pbz-staff-info-item .rs-input {
+  width: 100%;
+}
+
+.pbz-staff-info-item .rs-input,
+.pbz-staff-info-item .rs-picker-toggle {
+  min-height: 34px;
+  border-radius: 7px;
+  border-color: #ddd6ca;
+  font-size: 10px;
+}
+
+.pbz-staff-info-item .rs-picker-toggle {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.pbz-staff-info-item .rs-input:focus,
+.pbz-staff-info-item .rs-picker-toggle-active {
+  border-color: var(--pbz-entry-gold) !important;
+  box-shadow: 0 0 0 2px rgba(199, 154, 69, 0.08);
+}
+
+.pbz-staff-field-error {
+  display: block;
+  margin-top: 4px;
+  color: var(--pbz-entry-danger);
+  font-size: 8px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .pbz-staff-profile-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pbz-staff-profile-actions {
+    width: 100%;
+  }
+
+  .pbz-staff-edit-button {
+    width: 100%;
+  }
+
+  .pbz-staff-edit-actions {
+    width: 100%;
+  }
+
+  .pbz-staff-edit-actions button {
+    flex: 1;
+  }
+
+  .pbz-staff-status-strip {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .pbz-staff-status {
+    flex-basis: 100%;
+  }
+
+  .pbz-staff-status-item {
+    flex: 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .pbz-staff-profile-header,
+  .pbz-staff-section {
+    padding: 15px;
+  }
+
+  .pbz-staff-profile-identity {
+    align-items: flex-start;
+  }
+
+  .pbz-staff-profile-avatar {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+    border-radius: 11px;
+    font-size: 18px;
+  }
+
+  .pbz-staff-profile-name h2 {
+    font-size: 16px;
+  }
+
+  .pbz-staff-profile-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pbz-staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pbz-staff-status-strip {
+    padding: 13px;
+  }
+
+  .pbz-staff-status-item {
+    min-width: 0;
+  }
+
+  .pbz-staff-status-item strong {
+    font-size: 9px;
+  }
+
+  .pbz-staff-inline-fields {
+    grid-template-columns: 1fr;
+  }
+}

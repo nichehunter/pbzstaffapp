@@ -1,0 +1,186 @@
+/* =========================================================
+   PBZ HRMS BUTTONS
+
+   Default size: small
+========================================================= */
+
+.pbz-app-btn {
+  height: 34px;
+  min-height: 34px;
+
+  padding: 0 14px !important;
+
+  border-radius: 7px !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  box-shadow: none !important;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* =========================================================
+   DEFAULT
+========================================================= */
+
+.pbz-btn-default {
+  color: #334155 !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.pbz-btn-default:hover,
+.pbz-btn-default:focus {
+  color: #1e293b !important;
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+/* =========================================================
+   ADD
+========================================================= */
+
+.pbz-btn-add {
+  color: var(--pbz-entry-white) !important;
+  background: var(--pbz-entry-gold-dark) !important;
+  border-color: var(--pbz-entry-gold-dark) !important;
+}
+
+.pbz-btn-add:hover,
+.pbz-btn-add:focus {
+  color: var(--pbz-entry-white) !important;
+  background: var(--pbz-entry-gold) !important;
+  border-color: var(--pbz-entry-gold) !important;
+}
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+.pbz-btn-save {
+  color: #ffffff !important;
+  background: #0b1736 !important;
+  border-color: #0b1736 !important;
+}
+
+.pbz-btn-save:hover,
+.pbz-btn-save:focus {
+  color: #ffffff !important;
+  background: #12254d !important;
+  border-color: #12254d !important;
+
+  box-shadow: 0 3px 8px rgba(11, 23, 54, 0.18) !important;
+}
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.pbz-btn-submit {
+  color: #ffffff !important;
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+}
+
+.pbz-btn-submit:hover,
+.pbz-btn-submit:focus {
+  color: #ffffff !important;
+  background: #15803d !important;
+  border-color: #15803d !important;
+
+  box-shadow: 0 3px 8px rgba(22, 163, 74, 0.18) !important;
+}
+
+/* =========================================================
+   CANCEL
+========================================================= */
+
+.pbz-btn-cancel {
+  color: #475569 !important;
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+.pbz-btn-cancel:hover,
+.pbz-btn-cancel:focus {
+  color: #334155 !important;
+  background: #ffffff !important;
+  border-color: #94a3b8 !important;
+}
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.pbz-btn-delete {
+  color: #ffffff !important;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+}
+
+.pbz-btn-delete:hover,
+.pbz-btn-delete:focus {
+  color: #ffffff !important;
+  background: #b91c1c !important;
+  border-color: #b91c1c !important;
+
+  box-shadow: 0 3px 8px rgba(220, 38, 38, 0.18) !important;
+}
+
+/* =========================================================
+   WARNING
+========================================================= */
+.pbz-btn-warning {
+  color: #ffffff !important;
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+}
+
+.pbz-btn-warning:hover,
+.pbz-btn-warning:focus {
+  color: #ffffff !important;
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.18) !important;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.pbz-app-btn .anticon {
+  font-size: 14px;
+}
+
+/* =========================================================
+   LOADING / DISABLED
+========================================================= */
+
+.pbz-app-btn.ant-btn-loading,
+.pbz-app-btn.ant-btn-disabled,
+.pbz-app-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   BUTTON GROUP
+========================================================= */
+
+.pbz-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

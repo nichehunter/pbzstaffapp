@@ -11,6 +11,10 @@ export function loadStaffDetails(id) {
   return axios.get(`${apiUrl}/staff/details/${id}`);
 }
 
+export function loadStaffLastSalary(opf) {
+  return axios.get(`${apiUrl}/staff/salary/${opf}`);
+}
+
 export function updateStaff(id, data) {
   return axios.put(`${apiUrl}/staff/update/${id}`, data);
 }
@@ -370,35 +374,58 @@ export function loadStaffPayrollDeduction({ payrollId, staffId }) {
 }
 
 //==================================================================== staff ===============================================================
-export function loadStaffKPI(
-  pageLimit,
-  page,
-  department,
-  branch,
-  level,
+export function loadStaffKPI({
+  limit,
+  offset,
+  staffId,
+  supervisorId,
+  stationId,
+  status,
   search,
   order,
-) {
-  const params = new URLSearchParams({
-    limit: pageLimit,
-    offset: page,
-    department__id: department,
-    banch__id: branch,
-    level__id: level,
-    search: search,
-    ordering: order,
-  });
+}) {
+  const params = new URLSearchParams();
 
-  return axios.get(`${apiUrl}/kpi/list?${params.toString()}`);
+  if (limit) params.append("limit", limit);
+  if (offset) params.append("offset", offset);
+  if (staffId) params.append("staff__id", staffId);
+  if (supervisorId) params.append("station_supervisor__id", supervisorId);
+  if (stationId) params.append("station__id", stationId);
+  if (status) params.append("status", status);
+  if (search) params.append("search", search);
+  if (order) params.append("ordering", order);
+
+  return axios.get(`${apiUrl}/staff/kpi/list?${params.toString()}`);
+}
+
+export function loadStaffKPIItem(kpiId) {
+  return axios.get(`${apiUrl}/staff/kpi/item/${kpiId}`);
 }
 
 export function loadStaffKPIActive(kpi) {
   return axios.get(`${apiUrl}/kpi-active/${kpi}`);
 }
+
 export function loadStaffKPINotActive(kpi, staff) {
   return axios.get(`${apiUrl}/kpi-notactive?kpi_id=${kpi}&staff_id=${staff}`);
 }
 
-export function addStaffKPI(data) {
-  return axios.post(`${apiUrl}/staff-kpi`, data);
+export function addStaffKPI(kpiId, data) {
+  return axios.post(`${apiUrl}/staff/kpi/create/${kpiId}`, data);
+}
+
+export function submitStaffKPI(kpiId) {
+  return axios.post(`${apiUrl}/staff/kpi/submit/${kpiId}`);
+}
+
+export function loadKPIAssignment({ supervisorId }) {
+  return axios.get(`${apiUrl}/supervisor/kpi/assignment/${supervisorId}`);
+}
+
+export function approveStaffKPI(data) {
+  return axios.post(`${apiUrl}/supervisor/kpi/approve`, data);
+}
+
+export function rejectStaffKPI(data) {
+  return axios.post(`${apiUrl}/supervisor/kpi/reject`, data);
 }

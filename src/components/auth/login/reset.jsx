@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { authCRUD } from "../../../actions/auth";
 import { Message, useToaster } from "rsuite";
 import { char, code } from "../../../utils";
+import "./styles/reset.css";
 
 const loginSchema = Yup.object().shape({
   username: Yup.string().required("This field is required"),
@@ -26,7 +27,6 @@ export const ResetPassword = () => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer); // cleanup
   }, []);
-  
 
   const formik = useFormik({
     initialValues,
@@ -44,7 +44,7 @@ export const ResetPassword = () => {
             const password = code.generateRandomPassword(
               user.first_name.split(" ").length > 1
                 ? user.first_name.split(" ").slice(0, -1).join(" ")
-                : user.first_name
+                : user.first_name,
             );
 
             const data = { username, new_password: password };
@@ -56,7 +56,7 @@ export const ResetPassword = () => {
               <html>
                 <body>
                   <p>Dear ${char.toUpperCase(
-                    user?.first_name + " " + user?.last_name
+                    user?.first_name + " " + user?.last_name,
                   )},</p>
                   <p>Your password has been reset. Here is your default password: <span style="color: #FF0000;">${password}</span></p>
                   <p>Please change your password after logging in.</p>
@@ -81,7 +81,7 @@ export const ResetPassword = () => {
                       </p>
                     </p>
                   </Message>,
-                  { placement: "topEnd", duration: 7000 }
+                  { placement: "topEnd", duration: 7000 },
                 );
                 localStorage.removeItem("persist:root");
                 navigate("/", { replace: true });
@@ -94,7 +94,7 @@ export const ResetPassword = () => {
                   setStatus(
                     error.response
                       ? error.response.data.error
-                      : "Invalid credentials"
+                      : "Invalid credentials",
                   );
                 }
               });
@@ -104,7 +104,7 @@ export const ResetPassword = () => {
               setStatus(
                 error.response
                   ? error.response.data.error
-                  : "You are not active user"
+                  : "You are not active user",
               );
             }
           })
@@ -118,150 +118,247 @@ export const ResetPassword = () => {
 
   return (
     <>
-      <div className="container-fluid position-relative">
-        <div className="row">
-          <div className="col-md-4" />
-          <div
-            className="col-md-8 d-flex flex-column justify-content-center align-items-center p-5 text-dark"
-            style={{ backgroundColor: "#F5F5F5", minHeight: "100vh" }}
-          >
-            <p className="h1 fw-bold text-center mb-4">
-              The People's Bank of Zanzibar
-            </p>
-            <p className="h5 text-center mb-4">
-              Let's achieve great results together today.
-            </p>
-            <p className="h2 text-center fw-bold">
-              {currentTime.toLocaleTimeString()}
-            </p>
-          </div>
-          <Card className="login-card ps-4 pe-4">
-            <div className="row">
-              <div className="col-12">
-                <div className="row">
-                  <div className="col-12 text-center">
-                    <img
-                      width={250}
-                      className="mt-0 mb-2"
-                      src="assets/images/logo/pbz1.png"
-                      alt=""
-                    />
+      <div className="pbz-reset-page">
+        <div className="pbz-reset-layout">
+          {/* LEFT BRAND PANEL */}
+          <section className="pbz-reset-brand">
+            <div className="pbz-reset-pattern" />
+
+            <div className="pbz-reset-brand-content">
+              <div className="pbz-reset-brand-top">
+                <img
+                  src="assets/images/logo/pbz1.png"
+                  alt="People's Bank of Zanzibar"
+                  className="pbz-reset-brand-logo"
+                />
+
+                <div className="pbz-reset-badge">STAFF PORTAL</div>
+              </div>
+
+              <div className="pbz-reset-brand-message">
+                <span className="pbz-reset-overline">ACCOUNT RECOVERY</span>
+
+                <h1>
+                  Reset your
+                  <br />
+                  <span>account password.</span>
+                </h1>
+
+                <p>
+                  Forgot your password? Start the recovery process using your
+                  PBZ employee identification number.
+                </p>
+
+                <div className="pbz-reset-security-list">
+                  <div className="pbz-reset-security-item">
+                    <div className="pbz-reset-security-icon">
+                      <span className="bi bi-person-badge" />
+                    </div>
+
+                    <div>
+                      <strong>Staff identification</strong>
+                      <span>
+                        Use your registered OPF number to identify your account.
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="pbz-reset-security-item">
+                    <div className="pbz-reset-security-icon">
+                      <span className="bi bi-shield-lock" />
+                    </div>
+
+                    <div>
+                      <strong>Secure recovery</strong>
+                      <span>Your account recovery process is protected.</span>
+                    </div>
+                  </div>
+
+                  <div className="pbz-reset-security-item">
+                    <div className="pbz-reset-security-icon">
+                      <span className="bi bi-arrow-repeat" />
+                    </div>
+
+                    <div>
+                      <strong>Restore access</strong>
+                      <span>
+                        Continue to recover access to your staff account.
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-12">
-                    <p className="text-center h3 fw-bold mt-3">
-                      The People's Bank of Zanzibar
-                    </p>
-                    <p className="text-center h2 mt-3 fw-bold">
-                      {"Staff Portal"}
-                    </p>
-                    <p className="text-center h5 mt-3 fw-bold">
-                      Reset Password
-                    </p>
-                    {formik.status ? (
-                      <div className="alert alert-danger mt-3">
-                        <div className="h6 text-danger alert-text mt-2 fs-14 text-center">
-                          {formik.status}
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
+              </div>
+
+              <div className="pbz-reset-brand-footer">
+                <div>
+                  <strong>The People's Bank of Zanzibar</strong>
+                  <span>The People's Bank, The People's Choice</span>
                 </div>
-                <div className="row">
-                  <div className="col-12">
-                    <hr />
-                    <form onSubmit={formik.handleSubmit}>
-                      <div className="row ms-2 me-2">
-                        <div className="col-12">
-                          <div className="form-group">
-                            <label className="form-label">
-                              OPF No.
-                              <span className="ms-3 text-danger">*</span>
-                            </label>
-                            <Input
-                              size="large"
-                              placeholder="OPF Number"
-                              {...formik.getFieldProps("username")}
-                              status={
-                                formik.touched.username &&
-                                formik.errors.username &&
-                                "error"
-                              }
-                            />
-                            {formik.touched.username &&
-                              formik.errors.username && (
-                                <div
-                                  className="fw-light mt-1"
-                                  style={{ fontSize: "15px" }}
-                                >
-                                  <span role="alert" className="text-danger">
-                                    {formik.errors.username}
-                                  </span>
-                                </div>
-                              )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row ms-2 me-2 mt-3">
-                        <div className="col-12">
-                          <button
-                            type="submit"
-                            className="btn btn-primary shadow-none w-100"
-                            disabled={formik.isSubmitting || !formik.isValid}
-                          >
-                            {!loading ? (
-                              <span className="indicator-label">
-                                <span className="bi bi-shield-lock"></span>{" "}
-                                Reset
-                              </span>
-                            ) : (
-                              <span
-                                className="indicator-progress"
-                                style={{ display: "block" }}
-                              >
-                                Please wait.....
-                                <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
-                              </span>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-12 text-center mt-3">
-                          <p>
-                            <span className="fw-bold">Not you ? &nbsp;</span>{" "}
-                            <button
-                              className="btn btn-link text-decoration-none text-info"
-                              onClick={() => {
-                                localStorage.removeItem("persist:root");
-                                navigate("/", { replace: true });
-                              }}
-                            >
-                              Please Login
-                            </button>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row mt-5">
-                        <div className="col-12 text-center">
-                          <p className="mb-0">
-                            © {new Date().getFullYear()} &nbsp;{" "}
-                            <span className="fw-bold text-info">PBZ BANK</span>
-                          </p>
-                          <p className="fw-light h6 text-success fs-10 fst-italic mt-2">
-                            {" "}
-                            ---- The People’s Bank, The People’s Choice ----
-                          </p>
-                        </div>
-                      </div>
-                    </form>
+
+                <div className="pbz-reset-clock">
+                  <span className="bi bi-clock" />
+
+                  <div>
+                    <strong>{currentTime.toLocaleTimeString()}</strong>
+
+                    <small>
+                      {currentTime.toLocaleDateString(undefined, {
+                        weekday: "short",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
-          </Card>
+          </section>
+
+          {/* RIGHT RESET PANEL */}
+          <section className="pbz-reset-side">
+            <div className="pbz-reset-card">
+              <div className="pbz-reset-card-top">
+                <span className="pbz-reset-card-label">
+                  PBZ AUTH MANAGEMENT
+                </span>
+
+                <div className="pbz-reset-secure">
+                  <span className="bi bi-shield-check" />
+                  Secure
+                </div>
+              </div>
+
+              {/* ICON */}
+              <div className="pbz-reset-main-icon">
+                <div className="pbz-reset-icon-circle">
+                  <span className="bi bi-key" />
+                </div>
+              </div>
+
+              {/* HEADING */}
+              <div className="pbz-reset-heading">
+                <h2>Reset your password</h2>
+
+                <p>
+                  Enter your OPF number to begin the password recovery process.
+                </p>
+              </div>
+
+              {/* ERROR */}
+              {formik.status && (
+                <div className="pbz-reset-alert">
+                  <span className="bi bi-exclamation-circle-fill" />
+
+                  <div>
+                    <strong>Unable to continue</strong>
+                    <span>{formik.status}</span>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={formik.handleSubmit}>
+                {/* OPF NUMBER */}
+                <div className="pbz-reset-field">
+                  <label htmlFor="username">
+                    OPF Number
+                    <span>*</span>
+                  </label>
+
+                  <div className="pbz-reset-input-wrapper">
+                    <span className="bi bi-person-badge" />
+
+                    <Input
+                      id="username"
+                      size="large"
+                      placeholder="Enter your OPF number"
+                      {...formik.getFieldProps("username")}
+                      status={
+                        formik.touched.username && formik.errors.username
+                          ? "error"
+                          : ""
+                      }
+                    />
+                  </div>
+
+                  {formik.touched.username && formik.errors.username && (
+                    <div className="pbz-reset-error">
+                      <span className="bi bi-exclamation-circle" />
+                      {formik.errors.username}
+                    </div>
+                  )}
+                </div>
+
+                {/* INFORMATION */}
+                <div className="pbz-reset-info">
+                  <span className="bi bi-info-circle" />
+
+                  <div>
+                    <strong>How it works</strong>
+
+                    <span>
+                      Enter your OPF number and follow the verification steps to
+                      reset your password.
+                    </span>
+                  </div>
+                </div>
+
+                {/* RESET BUTTON */}
+                <button
+                  type="submit"
+                  className="pbz-reset-submit"
+                  disabled={formik.isSubmitting || !formik.isValid}
+                >
+                  {!loading ? (
+                    <>
+                      <span className="bi bi-shield-lock" />
+                      <span>Reset Password</span>
+                      <span className="bi bi-arrow-right" />
+                    </>
+                  ) : (
+                    <>
+                      <span
+                        className="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+
+                      <span>Please wait...</span>
+                    </>
+                  )}
+                </button>
+
+                {/* LOGIN AGAIN */}
+                <div className="pbz-reset-login-again">
+                  <span>Remember your password?</span>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      localStorage.removeItem("persist:root");
+                      navigate("/", { replace: true });
+                    }}
+                  >
+                    Sign in
+                    <span className="bi bi-arrow-right" />
+                  </button>
+                </div>
+              </form>
+
+              {/* FOOTER */}
+              <div className="pbz-reset-card-footer">
+                <div className="pbz-reset-footer-links">
+                  <span>PBZ Staff Portal</span>
+                  <i>•</i>
+                  <span>Secure Recovery</span>
+                </div>
+
+                <span>
+                  © {new Date().getFullYear()} People's Bank of Zanzibar
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>

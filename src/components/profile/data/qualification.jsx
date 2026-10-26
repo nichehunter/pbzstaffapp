@@ -24,7 +24,14 @@ export const QualificationInfo = (props) => {
       setLoading(true);
       setTimeout(() => {
         hrmsCRUD
-          .loadStaffQualification(postsPerPage, nextPage, dataId, "", value, "-id")
+          .loadStaffQualification(
+            postsPerPage,
+            nextPage,
+            dataId,
+            "",
+            value,
+            "-id",
+          )
           .then((resp) => {
             setData(resp.data.results);
             setCount(resp.data.count);
@@ -34,7 +41,7 @@ export const QualificationInfo = (props) => {
               <Message showIcon type={"error"} closable>
                 {error.message}
               </Message>,
-              { placement: "topCenter", duration: 7000 }
+              { placement: "topCenter", duration: 7000 },
             );
           })
           .finally(() => {
@@ -97,16 +104,14 @@ export const QualificationInfo = (props) => {
     ended_year: dt.ended_year ? dt.ended_year : "N/A",
   }));
 
-  const button = 
+  const button = (
     <>
-      <button
-        className="btn btn-soft-dark btn-border"
-        onClick={() => setOpen(true)}
-      >
+      <button className="pbz-app-btn pbz-btn-add" onClick={() => setOpen(true)}>
         <span className="bi bi-plus-circle la-lg"></span> &nbsp; New
         Qualification
       </button>
     </>
+  );
 
   return (
     <>

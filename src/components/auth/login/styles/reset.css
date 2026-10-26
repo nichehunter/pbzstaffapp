@@ -1,0 +1,640 @@
+.pbz-reset-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f7f4ee;
+  overflow: hidden;
+}
+
+.pbz-reset-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* =========================================================
+   LEFT BRAND
+   ========================================================= */
+
+.pbz-reset-brand {
+  width: 57%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(135deg, #161d24 0%, #202a33 52%, #151b21 100%);
+}
+
+.pbz-reset-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(
+      30deg,
+      transparent 12%,
+      rgba(199, 154, 69, 0.18) 12.5%,
+      transparent 13%
+    ),
+    linear-gradient(
+      150deg,
+      transparent 12%,
+      rgba(255, 255, 255, 0.06) 12.5%,
+      transparent 13%
+    );
+  background-size: 90px 90px;
+  pointer-events: none;
+}
+
+.pbz-reset-brand-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 52px 64px 38px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pbz-reset-brand-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pbz-reset-brand-logo {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.pbz-reset-badge {
+  padding: 8px 14px;
+  border: 1px solid rgba(199, 154, 69, 0.45);
+  border-radius: 999px;
+  color: #d4ad5f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   BRAND MESSAGE
+   ========================================================= */
+
+.pbz-reset-brand-message {
+  max-width: 610px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 55px 0;
+}
+
+.pbz-reset-overline {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #d4ad5f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+.pbz-reset-brand-message h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(42px, 4.2vw, 68px);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.pbz-reset-brand-message h1 span {
+  color: #d4ad5f;
+}
+
+.pbz-reset-brand-message > p {
+  max-width: 530px;
+  margin: 25px 0 36px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   SECURITY ITEMS
+   ========================================================= */
+
+.pbz-reset-security-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pbz-reset-security-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pbz-reset-security-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(199, 154, 69, 0.3);
+  border-radius: 11px;
+  color: #d4ad5f;
+  background: rgba(199, 154, 69, 0.08);
+}
+
+.pbz-reset-security-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbz-reset-security-item strong {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pbz-reset-security-item span {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+}
+
+/* =========================================================
+   BRAND FOOTER
+   ========================================================= */
+
+.pbz-reset-brand-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pbz-reset-brand-footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pbz-reset-brand-footer strong {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pbz-reset-brand-footer span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 10px;
+}
+
+.pbz-reset-clock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pbz-reset-clock > span {
+  color: #d4ad5f;
+  font-size: 17px;
+}
+
+.pbz-reset-clock > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.pbz-reset-clock strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+}
+
+.pbz-reset-clock small {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+}
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.pbz-reset-side {
+  width: 43%;
+  min-height: 100vh;
+  padding: 35px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f4ee;
+}
+
+.pbz-reset-card {
+  width: 100%;
+  max-width: 470px;
+  padding: 35px 38px 25px;
+  background: #ffffff;
+  border: 1px solid #e8e1d5;
+  border-radius: 18px;
+  box-shadow: 0 20px 55px rgba(24, 33, 43, 0.08);
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.pbz-reset-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.pbz-reset-card-label {
+  color: #9b7941;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.pbz-reset-secure {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #4d735e;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pbz-reset-secure span {
+  font-size: 13px;
+}
+
+/* =========================================================
+   MAIN ICON
+   ========================================================= */
+
+.pbz-reset-main-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 17px;
+}
+
+.pbz-reset-icon-circle {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #a97832;
+  background: #f5eee2;
+  border: 1px solid #eadbc2;
+  font-size: 23px;
+}
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.pbz-reset-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.pbz-reset-heading h2 {
+  margin: 0;
+  color: #20252b;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.pbz-reset-heading p {
+  max-width: 370px;
+  margin: 9px auto 0;
+  color: #718096;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.pbz-reset-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  margin-bottom: 21px;
+  border: 1px solid #f3d5d5;
+  border-radius: 10px;
+  color: #a33a3a;
+  background: #fff2f2;
+}
+
+.pbz-reset-alert > span {
+  margin-top: 1px;
+  font-size: 15px;
+}
+
+.pbz-reset-alert > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pbz-reset-alert strong {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pbz-reset-alert span {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   OPF FIELD
+   ========================================================= */
+
+.pbz-reset-field {
+  margin-bottom: 18px;
+}
+
+.pbz-reset-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #303944;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pbz-reset-field label > span {
+  margin-left: 5px;
+  color: #c45c5c;
+}
+
+.pbz-reset-input-wrapper {
+  position: relative;
+}
+
+.pbz-reset-input-wrapper > span {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 13px;
+  color: #a97832;
+  font-size: 15px;
+  transform: translateY(-50%);
+}
+
+.pbz-reset-input-wrapper .ant-input {
+  padding-left: 38px;
+  font-size: 13px;
+}
+
+.pbz-reset-input-wrapper .ant-input-affix-wrapper,
+.pbz-reset-input-wrapper > .ant-input {
+  min-height: 46px;
+  border-radius: 9px;
+  border-color: #e2e5e8;
+  box-shadow: none;
+}
+
+.pbz-reset-input-wrapper > .ant-input:hover {
+  border-color: #c79a45;
+}
+
+.pbz-reset-input-wrapper > .ant-input:focus {
+  border-color: #c79a45;
+  box-shadow: 0 0 0 2px rgba(199, 154, 69, 0.1);
+}
+
+.pbz-reset-input-wrapper .ant-input::placeholder {
+  color: #a7afb8;
+}
+
+.pbz-reset-error {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  color: #c53d3d;
+  font-size: 10px;
+}
+
+/* =========================================================
+   INFO BOX
+   ========================================================= */
+
+.pbz-reset-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #fbf8f2;
+  border: 1px solid #eee4d0;
+  border-radius: 9px;
+}
+
+.pbz-reset-info > span {
+  color: #a97832;
+  font-size: 15px;
+  margin-top: 1px;
+}
+
+.pbz-reset-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pbz-reset-info strong {
+  color: #343a40;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.pbz-reset-info span {
+  color: #7d8791;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   RESET BUTTON
+   ========================================================= */
+
+.pbz-reset-submit {
+  width: 100%;
+  min-height: 45px;
+  border: 0;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #ffffff;
+  background: #202a33;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pbz-reset-submit:hover:not(:disabled) {
+  background: #151b21;
+  box-shadow: 0 8px 20px rgba(22, 29, 36, 0.15);
+  transform: translateY(-1px);
+}
+
+.pbz-reset-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.pbz-reset-submit > span:last-child {
+  color: #d4ad5f;
+}
+
+/* =========================================================
+   LOGIN AGAIN
+   ========================================================= */
+
+.pbz-reset-login-again {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 17px;
+  font-size: 10px;
+}
+
+.pbz-reset-login-again > span {
+  color: #89929c;
+}
+
+.pbz-reset-login-again button {
+  padding: 0;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #a97832;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pbz-reset-login-again button:hover {
+  color: #7f5b28;
+}
+
+.pbz-reset-login-again button span {
+  font-size: 11px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.pbz-reset-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 26px;
+  padding-top: 15px;
+  border-top: 1px solid #eeeae3;
+  color: #a0a6ad;
+  font-size: 8px;
+}
+
+.pbz-reset-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pbz-reset-footer-links i {
+  color: #c79a45;
+  font-style: normal;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .pbz-reset-brand {
+    width: 52%;
+  }
+
+  .pbz-reset-side {
+    width: 48%;
+    padding: 30px;
+  }
+
+  .pbz-reset-brand-content {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .pbz-reset-brand-message h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pbz-reset-brand {
+    display: none;
+  }
+
+  .pbz-reset-side {
+    width: 100%;
+    min-height: 100vh;
+    padding: 25px 20px;
+  }
+
+  .pbz-reset-card {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pbz-reset-side {
+    padding: 15px;
+  }
+
+  .pbz-reset-card {
+    padding: 27px 22px 20px;
+    border-radius: 14px;
+  }
+
+  .pbz-reset-heading h2 {
+    font-size: 22px;
+  }
+
+  .pbz-reset-heading p {
+    font-size: 11px;
+  }
+
+  .pbz-reset-card-footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+  }
+}

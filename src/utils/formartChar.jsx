@@ -1,28 +1,31 @@
 export function toTitleCase(str) {
-  const titleCase = str?.toLowerCase()
+  if (str === null || str === undefined) return "";
+
+  return String(str)
+    .toLowerCase()
     .split(" ")
     .map((word) => {
       return word.charAt(0).toUpperCase() + word.slice(1);
     })
     .join(" ");
-
-  return titleCase;
 }
 
 export function toUpperCaseFirst(str) {
-  const titleCase = str?.charAt(0).toUpperCase() + str.slice(1);
+  if (str === null || str === undefined) return "";
 
-  return titleCase;
+  const value = String(str);
+
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
 export function toUpperCase(str) {
-  const upperCase = str?.toUpperCase();
+  if (str === null || str === undefined) return "";
 
-  return upperCase;
+  return String(str).toUpperCase();
 }
 
 export function toLowerCase(str) {
-  const lowerCase = str?.toLowerCase();
+  if (str === null || str === undefined) return "";
 
-  return lowerCase;
+  return String(str).toLowerCase();
 }

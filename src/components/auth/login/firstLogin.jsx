@@ -9,6 +9,7 @@ import { authCRUD } from "../../../actions/auth";
 import { Headers, selector } from "../../../api";
 import { Message, useToaster } from "rsuite";
 import { char } from "../../../utils";
+import "./styles/password.css";
 import moment from "moment";
 
 const authSchema = Yup.object().shape({
@@ -46,6 +47,8 @@ export const FirstLoginContent = () => {
     document.location.reload();
   };
 
+  console.log(token);
+
   const formik = useFormik({
     initialValues,
     validationSchema: authSchema,
@@ -65,12 +68,12 @@ export const FirstLoginContent = () => {
             <html>
               <body>
                 <p>Dear ${char.toUpperCase(
-                  user?.first_name + " " + user?.last_name
+                  user?.first_name + " " + user?.last_name,
                 )},</p>
                 <p>We appreciate you taking the necessary steps to change your password. For your security, it is always a good practice to keep your password updated.</p>
                 <p>If you didn't initiate this change, please contact the IT support team immediately to ensure the security of your account.</p>
                 <p>Your password update was successfully completed on ${moment().format(
-                  "MMM, DD YYYY"
+                  "MMM, DD YYYY",
                 )}.</p>
               </body>
             </html>
@@ -91,7 +94,7 @@ export const FirstLoginContent = () => {
                   </p>
                 </p>
               </Message>,
-              { placement: "bottomEnd", duration: 7000 }
+              { placement: "topEnd", duration: 7000 },
             );
             localStorage.removeItem("persist:root");
             navigate("/", { replace: true });
@@ -113,222 +116,298 @@ export const FirstLoginContent = () => {
 
   return (
     <>
-      <div className="container-fluid position-relative">
-        <div className="row">
-          <div className="col-md-4" />
-          <div
-            className="col-md-8 d-flex flex-column justify-content-center align-items-center p-5 text-dark"
-            style={{ backgroundColor: "#F5F5F5", minHeight: "100vh" }}
-          >
-            <p className="h1 fw-bold text-center mb-4">
-              The People's Bank of Zanzibar
-            </p>
-            <p className="h5 text-center mb-4">
-              Let's achieve great results together today.
-            </p>
-            <p className="h2 text-center fw-bold">
-              {currentTime.toLocaleTimeString()}
-            </p>
-          </div>
-          <Card className="login-card ps-4 pe-4">
-            <div className="row">
-              <div className="col-12">
-                <div className="row">
-                  <div className="col-12 text-center">
-                    <img
-                      width={250}
-                      className="mt-0 mb-2"
-                      src="assets/images/logo/pbz1.png"
-                      alt=""
-                    />
+      <div className="pbz-password-page">
+        <div className="pbz-password-layout">
+          {/* LEFT BRAND PANEL */}
+          <section className="pbz-password-brand">
+            <div className="pbz-password-pattern" />
+
+            <div className="pbz-password-brand-content">
+              <div className="pbz-password-brand-top">
+                <img
+                  src="assets/images/logo/pbz1.png"
+                  alt="People's Bank of Zanzibar"
+                  className="pbz-password-brand-logo"
+                />
+
+                <div className="pbz-password-badge">STAFF PORTAL</div>
+              </div>
+
+              <div className="pbz-password-brand-message">
+                <span className="pbz-password-overline">ACCOUNT SECURITY</span>
+
+                <h1>
+                  Create your
+                  <br />
+                  <span>secure password.</span>
+                </h1>
+
+                <p>
+                  Your password protects access to your employee information and
+                  PBZ staff services.
+                </p>
+
+                <div className="pbz-password-security-list">
+                  <div className="pbz-password-security-item">
+                    <div className="pbz-password-security-icon">
+                      <span className="bi bi-shield-lock" />
+                    </div>
+
+                    <div>
+                      <strong>Protect your account</strong>
+                      <span>Use a password that only you know.</span>
+                    </div>
+                  </div>
+
+                  <div className="pbz-password-security-item">
+                    <div className="pbz-password-security-icon">
+                      <span className="bi bi-key" />
+                    </div>
+
+                    <div>
+                      <strong>Use a strong password</strong>
+                      <span>Choose a password that is difficult to guess.</span>
+                    </div>
+                  </div>
+
+                  <div className="pbz-password-security-item">
+                    <div className="pbz-password-security-icon">
+                      <span className="bi bi-check2-circle" />
+                    </div>
+
+                    <div>
+                      <strong>Keep it private</strong>
+                      <span>Never share your password with anyone.</span>
+                    </div>
                   </div>
                 </div>
-                <div className="row mt-3">
-                  <div className="col-12">
-                    <p className="text-center h3">
-                      The People's Bank of Zanzibar
-                    </p>
-                    <p className="text-center h5 mt-3 fw-bold ff-primary">
-                      PBZ AUTH MANAGEMENT PORTAL
-                    </p>
-                    {formik.status ? (
-                      <div className="alert alert-danger mt-3">
-                        <div className="alert-text fw-light text-center">
-                          {formik.status}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="alert alert-info mt-3 ms-2 me-2">
-                        <div className="alert-text fw-bold text-center h6fs-13">
-                          {"Please change your default password"}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+              </div>
+
+              <div className="pbz-password-brand-footer">
+                <div>
+                  <strong>The People's Bank of Zanzibar</strong>
+                  <span>The People's Bank, The People's Choice</span>
                 </div>
-                <div className="row">
-                  <div className="col-12">
-                    <hr />
-                    <form onSubmit={formik.handleSubmit}>
-                      <div className="row ms-2 me-2 mt-3">
-                        <div className="col-sm-5">
-                          <p className="h6 fs-15 mt-2">Current Password</p>
-                        </div>
-                        <div className="col-sm-7">
-                          <div className="form-group">
-                            <Input.Password
-                              iconRender={(visible) =>
-                                visible ? (
-                                  <EyeTwoTone />
-                                ) : (
-                                  <EyeInvisibleOutlined />
-                                )
-                              }
-                              placeholder="Current Password"
-                              {...formik.getFieldProps("old_password")}
-                              status={
-                                formik.touched.old_password &&
-                                formik.errors.old_password &&
-                                "error"
-                              }
-                            />
-                            {formik.touched.old_password &&
-                              formik.errors.old_password && (
-                                <div
-                                  className="fw-light mt-1"
-                                  style={{ fontSize: "12px" }}
-                                >
-                                  <span role="alert" className="text-danger">
-                                    {formik.errors.old_password}
-                                  </span>
-                                </div>
-                              )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row ms-2 me-2 mt-3">
-                        <div className="col-sm-5">
-                          <p className="h6 fs-15 mt-2">New Password</p>
-                        </div>
-                        <div className="col-sm-7">
-                          <div className="form-group">
-                            <Input.Password
-                              iconRender={(visible) =>
-                                visible ? (
-                                  <EyeTwoTone />
-                                ) : (
-                                  <EyeInvisibleOutlined />
-                                )
-                              }
-                              placeholder="New Password"
-                              {...formik.getFieldProps("new_password")}
-                              status={
-                                formik.touched.new_password &&
-                                formik.errors.new_password &&
-                                "error"
-                              }
-                            />
-                            {formik.touched.new_password &&
-                              formik.errors.new_password && (
-                                <div
-                                  className="fw-light mt-1"
-                                  style={{ fontSize: "12px" }}
-                                >
-                                  <span role="alert" className="text-danger">
-                                    {formik.errors.new_password}
-                                  </span>
-                                </div>
-                              )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row ms-2 me-2 mt-3">
-                        <div className="col-sm-5">
-                          <p className="h6 fs-15 mt-2">Confirm Password</p>
-                        </div>
-                        <div className="col-sm-7">
-                          <div className="form-group">
-                            <Input.Password
-                              iconRender={(visible) =>
-                                visible ? (
-                                  <EyeTwoTone />
-                                ) : (
-                                  <EyeInvisibleOutlined />
-                                )
-                              }
-                              placeholder="Confirm Password"
-                              {...formik.getFieldProps("confirmPassword")}
-                              status={
-                                formik.touched.confirmPassword &&
-                                formik.errors.confirmPassword &&
-                                "error"
-                              }
-                            />
-                            {formik.touched.confirmPassword &&
-                              formik.errors.confirmPassword && (
-                                <div
-                                  className="fw-light mt-1"
-                                  style={{ fontSize: "12px" }}
-                                >
-                                  <span role="alert" className="text-danger">
-                                    {formik.errors.confirmPassword}
-                                  </span>
-                                </div>
-                              )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row ms-2 me-2 mt-3">
-                        <div className="col-12">
-                          <button
-                            type="submit"
-                            className="btn btn-primary waves-effect waves-light w-100"
-                            disabled={formik.isSubmitting}
-                          >
-                            {!loading ? (
-                              <span className="indicator-label">
-                                <span className="bi bi-key"></span> Change
-                              </span>
-                            ) : (
-                              <span
-                                className="indicator-progress"
-                                style={{ display: "block" }}
-                              >
-                                Please wait.....
-                                <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
-                              </span>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-12 text-center mt-3">
-                          <p>
-                            <span className="fw-bold">Not you ? &nbsp;</span>{" "}
-                            <Link to={"#"} onClick={handleLogout}>
-                              Please Login
-                            </Link>
-                          </p>
-                          <p className="fw-light h6 text-success fs-10 fst-italic mt-2">
-                            {" "}
-                            ---- The People’s Bank, The People’s Choice ----
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row mt-5">
-                        <div className="col-12 text-center">
-                          <p className="mb-0">
-                            © {new Date().getFullYear()} &nbsp;{" "}
-                            <span className="fw-bold text-dark">PBZ BANK</span>
-                          </p>
-                        </div>
-                      </div>
-                    </form>
+
+                <div className="pbz-password-clock">
+                  <span className="bi bi-clock" />
+
+                  <div>
+                    <strong>{currentTime.toLocaleTimeString()}</strong>
+
+                    <small>
+                      {currentTime.toLocaleDateString(undefined, {
+                        weekday: "short",
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
-          </Card>
+          </section>
+
+          {/* RIGHT FORM PANEL */}
+          <section className="pbz-password-side">
+            <div className="pbz-password-card">
+              <div className="pbz-password-card-top">
+                <span className="pbz-password-card-label">
+                  PBZ AUTH MANAGEMENT
+                </span>
+
+                <div className="pbz-password-secure">
+                  <span className="bi bi-shield-check" />
+                  Secure
+                </div>
+              </div>
+
+              <div className="pbz-password-main-icon">
+                <div className="pbz-password-icon-circle">
+                  <span className="bi bi-key" />
+                </div>
+              </div>
+
+              <div className="pbz-password-heading">
+                <h2>Change your password</h2>
+
+                <p>
+                  For your security, please change your default password before
+                  accessing the staff portal.
+                </p>
+              </div>
+
+              {/* STATUS MESSAGE */}
+              {formik.status ? (
+                <div className="pbz-password-alert pbz-password-alert-danger">
+                  <span className="bi bi-exclamation-circle-fill" />
+
+                  <div>
+                    <strong>Password change unsuccessful</strong>
+                    <span>{formik.status}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="pbz-password-alert pbz-password-alert-info">
+                  <span className="bi bi-info-circle-fill" />
+
+                  <div>
+                    <strong>Default password</strong>
+                    <span>
+                      Please change your default password to continue.
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={formik.handleSubmit}>
+                {/* CURRENT PASSWORD */}
+                <div className="pbz-password-field">
+                  <label htmlFor="old_password">Current Password</label>
+
+                  <Input.Password
+                    id="old_password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                    placeholder="Enter current password"
+                    {...formik.getFieldProps("old_password")}
+                    status={
+                      formik.touched.old_password && formik.errors.old_password
+                        ? "error"
+                        : ""
+                    }
+                  />
+
+                  {formik.touched.old_password &&
+                    formik.errors.old_password && (
+                      <div className="pbz-password-error">
+                        <span className="bi bi-exclamation-circle" />
+                        {formik.errors.old_password}
+                      </div>
+                    )}
+                </div>
+
+                {/* NEW PASSWORD */}
+                <div className="pbz-password-field">
+                  <label htmlFor="new_password">New Password</label>
+
+                  <Input.Password
+                    id="new_password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                    placeholder="Enter new password"
+                    {...formik.getFieldProps("new_password")}
+                    status={
+                      formik.touched.new_password && formik.errors.new_password
+                        ? "error"
+                        : ""
+                    }
+                  />
+
+                  {formik.touched.new_password &&
+                    formik.errors.new_password && (
+                      <div className="pbz-password-error">
+                        <span className="bi bi-exclamation-circle" />
+                        {formik.errors.new_password}
+                      </div>
+                    )}
+                </div>
+
+                {/* CONFIRM PASSWORD */}
+                <div className="pbz-password-field">
+                  <label htmlFor="confirmPassword">Confirm New Password</label>
+
+                  <Input.Password
+                    id="confirmPassword"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                    placeholder="Re-enter new password"
+                    {...formik.getFieldProps("confirmPassword")}
+                    status={
+                      formik.touched.confirmPassword &&
+                      formik.errors.confirmPassword
+                        ? "error"
+                        : ""
+                    }
+                  />
+
+                  {formik.touched.confirmPassword &&
+                    formik.errors.confirmPassword && (
+                      <div className="pbz-password-error">
+                        <span className="bi bi-exclamation-circle" />
+                        {formik.errors.confirmPassword}
+                      </div>
+                    )}
+                </div>
+
+                {/* PASSWORD SECURITY NOTE */}
+                <div className="pbz-password-security-note">
+                  <span className="bi bi-shield-check" />
+
+                  <div>
+                    <strong>Password security</strong>
+
+                    <span>
+                      Choose a password you do not use for other accounts and
+                      keep it confidential.
+                    </span>
+                  </div>
+                </div>
+
+                {/* SUBMIT */}
+                <button
+                  type="submit"
+                  className="pbz-password-submit"
+                  disabled={formik.isSubmitting}
+                >
+                  {!loading ? (
+                    <>
+                      <span className="bi bi-key" />
+                      <span>Change Password</span>
+                      <span className="bi bi-arrow-right" />
+                    </>
+                  ) : (
+                    <>
+                      <span
+                        className="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+
+                      <span>Please wait...</span>
+                    </>
+                  )}
+                </button>
+
+                {/* LOGIN AGAIN */}
+                <div className="pbz-password-login-again">
+                  <span>Not your account?</span>
+
+                  <Link to="#" onClick={handleLogout}>
+                    Sign in again
+                    <span className="bi bi-arrow-right" />
+                  </Link>
+                </div>
+              </form>
+
+              {/* FOOTER */}
+              <div className="pbz-password-card-footer">
+                <div className="pbz-password-footer-links">
+                  <span>PBZ Staff Portal</span>
+                  <i>•</i>
+                  <span>Secure Access</span>
+                </div>
+
+                <span>
+                  © {new Date().getFullYear()} People's Bank of Zanzibar
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>

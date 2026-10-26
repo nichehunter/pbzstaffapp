@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./styles/button.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "line-awesome/dist/line-awesome/css/line-awesome.css";
 import "rsuite/dist/rsuite.min.css";
@@ -18,11 +19,11 @@ root.render(
     <CountdownProvider>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-            <Router>
-              <Routers />
-            </Router>
+          <Router>
+            <Routers />
+          </Router>
         </PersistGate>
       </Provider>
     </CountdownProvider>
-  </AuthProvider>
+  </AuthProvider>,
 );

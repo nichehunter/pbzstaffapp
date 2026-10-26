@@ -1,96 +1,134 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import {
+  BankOutlined,
+  FileTextOutlined,
+  MinusCircleOutlined,
+  WalletOutlined,
+  PlusCircleOutlined,
+} from "@ant-design/icons";
 import { Nav } from "rsuite";
 import { selector } from "../../api";
 import { StaffSalary } from "./data/salary";
 import {
-  StaffAllowance,
-  StaffDeduction,
   StaffMonthlyAllowance,
   StaffMonthlyDeduction,
-  StaffOrganization,
   StaffPayroll,
 } from "./data";
+import "./style/finance.css";
 
 export const FinanceContent = () => {
   const staff = selector.Staff();
   const [active, setActive] = useState("salary");
 
+  const menuItems = [
+    {
+      eventKey: "salary",
+      label: "Salary",
+      description: "Basic salary structure",
+      icon: <WalletOutlined />,
+    },
+    {
+      eventKey: "montallowance",
+      label: "Monthly Allowance",
+      description: "Monthly earnings",
+      icon: <PlusCircleOutlined />,
+    },
+    {
+      eventKey: "montdeduction",
+      label: "Monthly Deduction",
+      description: "Monthly deductions",
+      icon: <MinusCircleOutlined />,
+    },
+    {
+      eventKey: "payroll",
+      label: "Salary Slip",
+      description: "Payroll statements",
+      icon: <FileTextOutlined />,
+    },
+  ];
+
+  const activeItem = menuItems.find((item) => item.eventKey === active);
+
   return (
-    <>
-      <div className="container-fluid">
-        <div className="row mb-2">
-          <div className="col-12">
-            <p className="h6 fs-20 fw-bold" style={{ marginTop: -70 }}>
-              Financial Structure
-            </p>
+    <div className="container-fluid pbz-finance">
+      
+      <div className="pbz-page-header">
+        <div>
+          <div className="pbz-page-eyebrow">
+            <BankOutlined />
+            FINANCIAL MANAGEMENT
           </div>
-          <hr style={{ marginTop: -30 }} />
-        </div>
-        <div className="row">
-          <div className="col-md-2 col-sm-12">
-            <div className="card shadow p-3">
-              <Nav
-                reversed={true}
-                vertical={true}
-                activeKey={active}
-                onSelect={setActive}
-                style={{ width: 200 }}
-                appearance="subtle"
-              >
-                <Nav.Item eventKey="salary" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Salary</span>
-                </Nav.Item>
-                {/* <Nav.Item eventKey="allowance" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Allowance</span>
-                </Nav.Item>
-                <Nav.Item eventKey="deduction" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Deduction</span>
-                </Nav.Item>
-                <Nav.Item eventKey="organization" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Organization</span>
-                </Nav.Item> */}
-                <Nav.Item eventKey="montallowance" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Monthly Allowance</span>
-                </Nav.Item>
-                <Nav.Item eventKey="montdeduction" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Monthly Deduction</span>
-                </Nav.Item>
-                <Nav.Item eventKey="payroll" style={{ height: 50 }}>
-                  <span className="h6 fs-14">Slip</span>
-                </Nav.Item>
-              </Nav>
-            </div>
-          </div>
-          {/* {active === "salary" ? (
-                <StaffSalary dataId={staff.id} />
-              ) : active === "allowance" ? (
-                <StaffAllowance dataId={staff.id} />
-              ) : active === "deduction" ? (
-                <StaffDeduction dataId={staff.id} />
-              ) : active === "organization" ? (
-                <StaffOrganization dataId={staff.id} />
-              ) : active === "montallowance" ? (
-                <StaffMonthlyAllowance dataId={staff.id} />
-              ) : active === "montdeduction" ? (
-                <StaffMonthlyDeduction dataId={staff.id} />
-              ) : active === "payroll" ? (
-                <StaffPayroll dataId={staff.id} />
-              ) : null} */}
-          <div className="col-md-10 col-sm-12">
-            <div className="card shadow p-3">
-              {active === "salary" ? (
-                <StaffSalary dataId={staff.id} />
-              ) : active === "montallowance" ? (
-                <StaffMonthlyAllowance dataId={staff.id} />
-              ) : active === "montdeduction" ? (
-                <StaffMonthlyDeduction dataId={staff.id} />
-              ) : active === "payroll" ? (
-                <StaffPayroll dataId={staff.id} />
-              ) : null}
-            </div>
-          </div>
+
+          <h1 className="pbz-page-title">Financial Structure</h1>
+
+          <p className="pbz-page-description">
+            View your salary, allowances, deductions and payroll information.
+          </p>
         </div>
       </div>
-    </>
+
+      
+      <div className="pbz-finance-layout">
+        
+        <aside className="pbz-finance-sidebar">
+          <div className="pbz-finance-nav-header">
+            <span>Financial Information</span>
+            <small>STAFF RECORD</small>
+          </div>
+
+          <Nav
+            vertical
+            activeKey={active}
+            onSelect={setActive}
+            appearance="subtle"
+            className="pbz-finance-nav"
+          >
+            {menuItems.map((item) => (
+              <Nav.Item
+                key={item.eventKey}
+                eventKey={item.eventKey}
+                className="pbz-finance-nav-item"
+              >
+                <div className="pbz-finance-nav-content">
+                  <span className="pbz-finance-nav-icon">{item.icon}</span>
+
+                  <span className="pbz-finance-nav-text">
+                    <strong>{item.label}</strong>
+                    <span>{item.description}</span>
+                  </span>
+                </div>
+              </Nav.Item>
+            ))}
+          </Nav>
+        </aside>
+
+       
+        <section className="pbz-finance-content">
+          <div className="pbz-finance-content-header">
+            <div className="pbz-finance-content-icon">{activeItem?.icon}</div>
+
+            <div>
+              <span>FINANCIAL INFORMATION</span>
+              <h2>{activeItem?.label}</h2>
+              <p>{activeItem?.description}</p>
+            </div>
+          </div>
+
+          <div className="pbz-finance-content-body">
+            {active === "salary" && <StaffSalary dataId={staff.id} />}
+
+            {active === "montallowance" && (
+              <StaffMonthlyAllowance dataId={staff.id} />
+            )}
+
+            {active === "montdeduction" && (
+              <StaffMonthlyDeduction dataId={staff.id} />
+            )}
+
+            {active === "payroll" && <StaffPayroll dataId={staff.id} />}
+          </div>
+        </section>
+      </div>
+    </div>
   );
 };
