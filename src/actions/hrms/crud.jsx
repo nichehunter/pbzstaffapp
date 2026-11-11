@@ -11,6 +11,10 @@ export function loadStaffDetails(id) {
   return axios.get(`${apiUrl}/staff/details/${id}`);
 }
 
+export function loadStaffProfile(id) {
+  return axios.get(`${apiUrl}/staff/profile/${id}`);
+}
+
 export function loadStaffLastSalary(opf) {
   return axios.get(`${apiUrl}/staff/salary/${opf}`);
 }

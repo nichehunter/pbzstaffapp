@@ -88,7 +88,7 @@ export const StaffInfo = ({ dataId }) => {
 
     const timer = setTimeout(() => {
       hrmsCRUD
-        .loadStaffDetails(dataId)
+        .loadStaffProfile(dataId)
         .then((resp) => {
           const staff = resp.data;
 
@@ -540,6 +540,12 @@ export const StaffInfo = ({ dataId }) => {
             icon="bi bi-person-vcard"
           />
 
+          <InfoItem
+            label="CPF Number"
+            value={data.staff_cpf}
+            icon="bi bi-person-vcard"
+          />
+
           <InfoItem label="ZanID" value={data.zanid} icon="bi bi-card-text">
             {isEdit ? (
               <Input
@@ -563,6 +569,17 @@ export const StaffInfo = ({ dataId }) => {
               />
             ) : null}
           </InfoItem>
+          <InfoItem
+            label="TIN Number"
+            value={data.staff_tin}
+            icon="bi bi-person-vcard"
+          />
+
+          <InfoItem
+            label="Payroll Number"
+            value={data.payroll_number}
+            icon="bi bi-person-vcard"
+          />
         </div>
       </section>
 
@@ -571,6 +588,31 @@ export const StaffInfo = ({ dataId }) => {
         <div className="pbz-staff-section-header">
           <div>
             <span>04</span>
+            <div>
+              <h3>
+                {char.toUpperCase(data?.security_fund_name) || "Pension Fund"}
+              </h3>
+              <p>Pension fund information.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="pbz-staff-grid">
+          <InfoItem
+            label="Account Number"
+            value={
+              data.security_fund_account
+                ? char.toTitleCase(data.security_fund_account)
+                : null
+            }
+            icon="bi bi-people"
+          />
+        </div>
+      </section>
+      <section className="pbz-staff-section">
+        <div className="pbz-staff-section-header">
+          <div>
+            <span>05</span>
             <div>
               <h3>Next of Kin</h3>
               <p>Emergency contact information.</p>
@@ -617,7 +659,7 @@ export const StaffInfo = ({ dataId }) => {
       <section className="pbz-staff-section pbz-staff-section-last">
         <div className="pbz-staff-section-header">
           <div>
-            <span>05</span>
+            <span>06</span>
             <div>
               <h3>Employment Information</h3>
               <p>Your current employment details.</p>
